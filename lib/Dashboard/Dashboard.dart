@@ -9,6 +9,9 @@ import 'package:pandabar/model.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 
+import '../ChatWithCoach/ChatWithCoach.dart';
+import '../transformPackages/transformPackages.dart';
+
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
@@ -26,8 +29,8 @@ class _DashboardState extends State<Dashboard> {
           controller: _controller,
           children: <Widget>[
             homePage(),
-            ColoredBox(color: Colors.redAccent),
-            ColoredBox(color: Colors.greenAccent),
+            transformPackages(),
+            ChatWithCoach(),
             ColoredBox(color: Colors.orange),
           ],
         ),
@@ -44,8 +47,8 @@ class _DashboardState extends State<Dashboard> {
                 label: 'Transform', activeColor: Colors.green),
             RollingBottomBarItem(Icons.chat,
                 label: 'Chat', activeColor: Colors.green),
-            RollingBottomBarItem(Icons.menu,
-                label: 'More', activeColor: Colors.green),
+            RollingBottomBarItem(Icons.person,
+                label: 'Profile', activeColor: Colors.green),
           ],
           enableIconRotation: true,
           onTap: (index) {
