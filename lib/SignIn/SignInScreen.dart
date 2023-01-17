@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../Dashboard/Dashboard.dart';
+import '../Payment/PaymentScreen.dart';
 import '../SignUp/SignUpScreen.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -108,7 +109,7 @@ class SignInScreen extends StatelessWidget {
                               fontSize: width * 0.05
                           ),),
                         onPressed: (){
-                          Get.to(Dashboard());
+                          Get.to(PaymentScreen());
                         }),
                   ),
                 ),

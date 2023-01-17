@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'Dashboard/Dashboard.dart';
 import 'SignIn/SignInScreen.dart';
 
 class startingScreen extends StatelessWidget {
@@ -99,7 +100,7 @@ class startingScreen extends StatelessWidget {
                 child: Center(
                   child: GestureDetector(
                     onTap: (){
-                      Get.to(SignInScreen());
+                      Get.to(Dashboard());
                     },
                     child: CircleAvatar(
                       radius: 30,

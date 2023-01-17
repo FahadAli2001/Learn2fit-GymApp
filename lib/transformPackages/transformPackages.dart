@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../Payment/PaymentScreen.dart';
+import '../SignIn/SignInScreen.dart';
 
 class transformPackages extends StatelessWidget {
   const transformPackages({Key? key}) : super(key: key);
@@ -130,7 +131,7 @@ class transformPackages extends StatelessWidget {
                             color: Colors.white
                           ),),
                               onPressed: (){
-                              Get.to(PaymentScreen());
+                              Get.to(SignInScreen());
                               }),
                         )
                       ],
