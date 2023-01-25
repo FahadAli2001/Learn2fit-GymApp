@@ -18,6 +18,14 @@ class SignUpScreen extends StatelessWidget {
       _value.value = val;
     }
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white70,
+        leading: IconButton(onPressed: (){
+          Get.back();
+        },
+            icon: Icon(CupertinoIcons.back,color: Colors.black,)),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
@@ -42,8 +50,8 @@ class SignUpScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
                   child: TextFormField(
                       decoration: InputDecoration(
-                          hintText: "User Id",
-                          labelText: "User Id",
+                          hintText: "Email",
+                          labelText: "Email",
                           suffixIcon: Icon(CupertinoIcons.mail),
                           border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(

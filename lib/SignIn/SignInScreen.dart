@@ -21,6 +21,14 @@ class SignInScreen extends StatelessWidget {
       _value.value = val;
     }
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white70,
+        leading: IconButton(onPressed: (){
+          Get.back();
+        },
+            icon: Icon(CupertinoIcons.back,color: Colors.black,)),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),

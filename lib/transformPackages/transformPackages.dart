@@ -131,7 +131,7 @@ class transformPackages extends StatelessWidget {
                             color: Colors.white
                           ),),
                               onPressed: (){
-                              Get.to(SignInScreen());
+                              Get.to(PaymentScreen());
                               }),
                         )
                       ],

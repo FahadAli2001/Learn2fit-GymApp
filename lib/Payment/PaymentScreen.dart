@@ -4,11 +4,17 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../GoalsScreen/GoalsScreen.dart';
+import '../SignIn/SignInScreen.dart';
+import '../SignUp/SignUpScreen.dart';
+
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var payment = "cash".obs;
+
     var isCoupon = false.obs;
     return SafeArea(
       child: Scaffold(
@@ -33,7 +39,9 @@ class PaymentScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 8),
             child: CupertinoButton(
               color: Colors.green,
-              onPressed: (){},
+              onPressed: (){
+                Get.to(GoalsScreen());
+              },
               child: Text("Pay",
                 style: TextStyle(
                     color: Colors.white,
@@ -128,6 +136,51 @@ class PaymentScreen extends StatelessWidget {
                 ),
               ),
               //
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Customer Info",
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontSize: Get.width * 0.05
+                      ),),
+                    //
+                    Container(
+                      child: Row(
+                        children: [
+                          TextButton(onPressed: (){
+                            Get.to(SignInScreen());
+                          },
+                              child: Text("Login",
+                              style: TextStyle(
+                                color: Colors.green
+                              ),)),
+                          //
+                          Text("/",
+                            style: TextStyle(
+                                color: Colors.green,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                          //
+                          TextButton(onPressed: (){
+                            Get.to(SignUpScreen());
+                          },
+                              child: Text("Signup",
+                                style: TextStyle(
+                                    color: Colors.green
+                                ),)),
+
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              //
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
@@ -203,8 +256,57 @@ class PaymentScreen extends StatelessWidget {
                         labelText: "Coupon-Code"
                     )
                 ),
-              ))
+              )),
               //
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("PAYMENT METHOD",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: Get.width * 0.06
+                  ),),
+              ),
+              //----
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:5),
+                child: Obx(
+                      ()=> Container(
+                    height: Get.height * 0.06,
+                    width: Get.width,
+                    //color: Colors.red,
+                    child:  RadioListTile(
+                      title: Text("Direct Bank Transfer"),
+                      value: "Direct Bank Transfer",
+                      groupValue: payment.value,
+                      onChanged: (val){
+                        payment.value = val.toString();
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              //----------
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:5),
+                child: Obx(
+                      ()=> Container(
+                    height: Get.height * 0.06,
+                    width: Get.width,
+                    //color: Colors.red,
+                    child: RadioListTile(
+                      title: Text("Paypal"),
+                      value: "Paypal",
+                      groupValue: payment.value,
+                      onChanged: (val){
+                        payment.value = val.toString();
+                        //print(val.toString()+""+payment.value);
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              //-------
 
             ],
           ),

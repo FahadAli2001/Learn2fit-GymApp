@@ -10,6 +10,7 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 
 import '../ChatWithCoach/ChatWithCoach.dart';
+import '../Profile/ProfileSettingScreen.dart';
 import '../transformPackages/transformPackages.dart';
 
 class Dashboard extends StatefulWidget {
@@ -31,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
             homePage(),
             transformPackages(),
             ChatWithCoach(),
-            ColoredBox(color: Colors.orange),
+
           ],
         ),
         extendBody: true,
@@ -47,8 +48,7 @@ class _DashboardState extends State<Dashboard> {
                 label: 'Transform', activeColor: Colors.green),
             RollingBottomBarItem(Icons.chat,
                 label: 'Chat', activeColor: Colors.green),
-            RollingBottomBarItem(Icons.person,
-                label: 'Profile', activeColor: Colors.green),
+
           ],
           enableIconRotation: true,
           onTap: (index) {
