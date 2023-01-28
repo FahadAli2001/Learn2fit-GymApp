@@ -10,6 +10,7 @@ class GoalsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textsize = Get.width * 0.04;
     var _value = false.obs;
     void _handleRadioValueChanged(val) {
       _value.value = val;
@@ -77,7 +78,7 @@ class GoalsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: Get.width * 0.05
+                                    fontSize: textsize
                                 ),),
                               //
                               Checkbox(
@@ -95,7 +96,7 @@ class GoalsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: Get.width * 0.05
+                                    fontSize: textsize
                                 ),),
                               //
                               Checkbox(
@@ -113,7 +114,7 @@ class GoalsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: Get.width * 0.05
+                                    fontSize: textsize
                                 ),),
                               //
                               Checkbox(
@@ -131,7 +132,7 @@ class GoalsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: Get.width * 0.05
+                                    fontSize: textsize
                                 ),),
                               //
                               Checkbox(
@@ -149,7 +150,7 @@ class GoalsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: Get.width * 0.05
+                                    fontSize: textsize
                                 ),),
                               //
                               Checkbox(

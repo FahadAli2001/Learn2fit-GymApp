@@ -137,7 +137,7 @@ class PaymentScreen extends StatelessWidget {
               ),
               //
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -184,12 +184,12 @@ class PaymentScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(10),
                   child: Text("Card Details",
                     style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
-                        fontSize: Get.width * 0.06
+                        fontSize: Get.width * 0.05
                     ),),
                 ),
               ),
@@ -197,7 +197,11 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                 child: TextField(
+                  style: TextStyle(
+                    height: 0.5
+                  ),
                   decoration:InputDecoration(
+
                     border: OutlineInputBorder(),
                     hintText: "0321 xxxxxxx",
                     labelText: "Mobile-No"
@@ -208,6 +212,9 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                 child: TextField(
+                  style: TextStyle(
+                    height: 0.5
+                  ),
                     decoration:InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "xxxxxxxxxxxxxxxx",
@@ -219,6 +226,9 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
                 child: TextField(
+                  style: TextStyle(
+                    height: 0.5
+                  ),
                     decoration:InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "xxxxxxxxxxxxxxxx",

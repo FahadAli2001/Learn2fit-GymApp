@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../Exercises/ExerciseScreen.dart';
+
 
 class TrainingPlan extends StatelessWidget {
   const TrainingPlan({Key? key}) : super(key: key);
@@ -24,12 +26,14 @@ class TrainingPlan extends StatelessWidget {
               ),
             ),
             //
-            for(var i = 1; i <= 30 ; i++)...[
+            for(var i = 1; i <= 2 ; i++)...[
                   Obx(()=>
                      Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     child: GestureDetector(
                       onTap: (){
+                        Get.to(ExerciseScreen(),
+                        arguments: {"dayvalue":i.toString()});
                         currentindex.value = i;
                       },
                       child: Container(

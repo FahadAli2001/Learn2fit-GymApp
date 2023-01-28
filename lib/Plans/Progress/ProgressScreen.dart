@@ -45,7 +45,7 @@ class ProgresScreen extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: Get.width * 0.05,
+                  fontSize: Get.width * 0.045,
 
                 ),),
               ),

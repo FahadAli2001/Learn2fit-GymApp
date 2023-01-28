@@ -16,6 +16,7 @@ class ClassTimings extends StatelessWidget {
     void _handleRadioValueChanged(val) {
       _value.value = val;
     }
+    var textsize = Get.width * 0.045;
     return SafeArea(child: Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -73,7 +74,12 @@ class ClassTimings extends StatelessWidget {
                          width: Get.width,
                          //color: Colors.red,
                          child:  RadioListTile(
-                           title: Text("Class A"),
+                           title: Text("Class A",
+                           style: TextStyle(
+                             color: Colors.black,
+                             fontWeight: FontWeight.bold,
+                             fontSize: textsize
+                           ),),
                            value: "Class A",
                            groupValue: selectedclass.value,
                            onChanged: (val){
@@ -89,7 +95,12 @@ class ClassTimings extends StatelessWidget {
                          width: Get.width,
                          //color: Colors.red,
                          child: RadioListTile(
-                           title: Text("Class B"),
+                           title: Text("Class B",
+                             style: TextStyle(
+                                 color: Colors.black,
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: textsize
+                             ),),
                            value: "Class B",
                            groupValue: selectedclass.value,
                            onChanged: (val){
@@ -105,7 +116,12 @@ class ClassTimings extends StatelessWidget {
                          width: Get.width,
                          //color: Colors.red,
                          child: RadioListTile(
-                           title: Text("Class C"),
+                           title: Text("Class C",
+                             style: TextStyle(
+                                 color: Colors.black,
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: textsize
+                             ),),
                            value: "Class C",
                            groupValue: selectedclass.value,
                            onChanged: (val){

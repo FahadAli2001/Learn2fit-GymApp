@@ -14,6 +14,7 @@ class PysicalInformation extends StatelessWidget {
     var weight = 1.obs;
     var target_weight = 1.obs;
     var waist_size = 10.obs;
+    var textsize =Get.width* 0.045;
     return SafeArea(child:
     Scaffold(
       appBar: AppBar(
@@ -56,7 +57,7 @@ class PysicalInformation extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: Get.width * 0.05
+                            fontSize: textsize
                         ),),
                       //
                       Obx(
@@ -64,7 +65,7 @@ class PysicalInformation extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: Get.width * 0.05
+                              fontSize: textsize
                           ),),
                       ),
                     ],
@@ -93,7 +94,7 @@ class PysicalInformation extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: Get.width * 0.05
+                            fontSize: textsize
                         ),),
                       //
                       Obx(
@@ -101,7 +102,7 @@ class PysicalInformation extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: Get.width * 0.05
+                              fontSize: textsize
                           ),),
                       ),
                     ],
@@ -130,7 +131,7 @@ class PysicalInformation extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: Get.width * 0.05
+                            fontSize: textsize
                         ),),
                       //
                       Obx(
@@ -138,7 +139,7 @@ class PysicalInformation extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: Get.width * 0.05
+                              fontSize: textsize
                           ),),
                       ),
                     ],
@@ -167,7 +168,7 @@ class PysicalInformation extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: Get.width * 0.05
+                            fontSize: textsize
                         ),),
                       //
                       Obx(
@@ -175,7 +176,7 @@ class PysicalInformation extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: Get.width * 0.05
+                              fontSize: textsize
                           ),),
                       ),
                     ],

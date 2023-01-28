@@ -23,7 +23,7 @@ class PlansDetailScreen extends StatelessWidget {
               children: [
                 Container(
                   width: Get.width,
-                  height: Get.height * 0.06,
+                  height: Get.height * 0.045,
 
                   decoration: BoxDecoration(
                       color: Colors.grey.shade300,

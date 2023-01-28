@@ -41,6 +41,7 @@ class UserDataScreen extends StatelessWidget {
     void selectedprofession(String value){
       profession.value = value;
     }
+    var textsize = Get.width * 0.045;
     return SafeArea(child: Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -75,6 +76,9 @@ class UserDataScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                style: TextStyle(
+                  height: 0.5
+                ),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Name",
@@ -86,6 +90,9 @@ class UserDataScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                style: TextStyle(
+                  height: 0.5
+                ),
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Mobile Number",
@@ -103,7 +110,7 @@ class UserDataScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: Get.width * 0.05
+                        fontSize: textsize
                     ),),
                   //
                   Obx(
@@ -140,7 +147,7 @@ class UserDataScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: Get.width * 0.05
+                        fontSize: textsize
                     ),
                   ),
                   //
@@ -165,7 +172,7 @@ class UserDataScreen extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
-                    fontSize: Get.width * 0.05
+                    fontSize: textsize
                 ),
               ),
             ),
@@ -209,7 +216,7 @@ class UserDataScreen extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
-                    fontSize: Get.width * 0.05
+                    fontSize: textsize
                 ),
               ),
             ),

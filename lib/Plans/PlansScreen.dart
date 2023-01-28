@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../Profile/ProfileSettingScreen.dart';
+import '../SelfAssesment/SelfAssesment.dart';
 import 'PlansScreen/PlansDetailScreen.dart';
 
 class PlansScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class PlansScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             PlansDetailScreen(),
-            Container(),
+            SelfAssement(),
           ],
         ),
       ),
