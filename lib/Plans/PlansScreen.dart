@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../Insight/InsightScreen.dart';
 import '../Profile/ProfileSettingScreen.dart';
 import '../SelfAssesment/SelfAssesment.dart';
 import 'PlansScreen/PlansDetailScreen.dart';
@@ -13,7 +14,7 @@ class PlansScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -35,7 +36,8 @@ class PlansScreen extends StatelessWidget {
             indicatorColor: Colors.green,
             tabs: [
               Tab( text: "Plans",),
-              Tab(text: "Self Assesment")
+              Tab(text: "Self Assesment"),
+              Tab(text: "Insight"),
             ],
           ),
         ),
@@ -43,6 +45,7 @@ class PlansScreen extends StatelessWidget {
           children: [
             PlansDetailScreen(),
             SelfAssement(),
+            InsightScreen()
           ],
         ),
       ),

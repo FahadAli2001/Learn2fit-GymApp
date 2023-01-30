@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +9,12 @@ class homePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> imagesUrl = [
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-2.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
+    ];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -51,17 +59,31 @@ class homePage extends StatelessWidget {
                   ),
                 ),
                 //
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: Get.width,
-                    height: Get.height * 0.25,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                        image: DecorationImage(
-                            image: AssetImage("assets/logo.JPG"),
-                            fit: BoxFit.cover)),
-                  ),
+                CarouselSlider.builder(
+                  itemCount: imagesUrl.length,
+                  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: Get.width,
+                          height: Get.height * 0.4,
+                          decoration: BoxDecoration(
+                           // color: Colors.orange,
+                              image: DecorationImage(
+                                  image: NetworkImage(imagesUrl[itemIndex]),
+                                  fit: BoxFit.fill
+                              )
+                          ),
+
+                        ),
+                      ), options:  CarouselOptions(
+                    autoPlay: true,
+                   // enlargeCenterPage: true,
+                    //height: Get.height * 0.1,
+                    //aspectRatio: 16/9,
+                    onPageChanged: (index, reason) {
+
+                    }),
                 ),
                 //
                 Padding(
@@ -73,7 +95,7 @@ class homePage extends StatelessWidget {
                         text:
                             'We have seen many people doing Dieting or going to gym or doing exercises or excessive walking for months ',
                         style: TextStyle(
-                          fontSize: Get.width * 0.048,
+                          fontSize: Get.width * 0.045,
                           color: Colors.black,
                         ),
                         children: const <TextSpan>[

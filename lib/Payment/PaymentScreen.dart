@@ -7,12 +7,14 @@ import 'package:get/get_core/src/get_main.dart';
 import '../GoalsScreen/GoalsScreen.dart';
 import '../SignIn/SignInScreen.dart';
 import '../SignUp/SignUpScreen.dart';
+import 'PaymentController.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    PaymentController pcon = Get.put(PaymentController());
     var payment = "cash".obs;
 
     var isCoupon = false.obs;
@@ -289,7 +291,8 @@ class PaymentScreen extends StatelessWidget {
                       title: Text("Direct Bank Transfer"),
                       value: "Direct Bank Transfer",
                       groupValue: payment.value,
-                      onChanged: (val){
+                      onChanged: (val)async{
+                        await pcon.makePayment();
                         payment.value = val.toString();
                       },
                     ),

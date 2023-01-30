@@ -18,13 +18,23 @@ class welcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child: CircleAvatar(
+                child:Container(
+                  width: Get.width * 0.5,
+                  height: Get.height * 0.3,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image:
+                    AssetImage("assets/logo.png"),fit: BoxFit.fill),
+                    color: Colors.black,
+                    shape: BoxShape.circle,
+                  ),
+                ) /*(
+                  backgroundColor: Colors.black,
                   radius: 100,
-                  backgroundImage: AssetImage("assets/f.png"),
-                ),
+                  backgroundImage: AssetImage("assets/logo.png"),
+                ),*/
               ),
               //--------
-              SizedBox(height: 30,),
+              //SizedBox(height: 30,),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Center(

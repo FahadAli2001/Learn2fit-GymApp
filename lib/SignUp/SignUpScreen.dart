@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,18 +6,17 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:learn2fit/SignIn/SignInScreen.dart';
 
+import 'SignUpScreenController.dart';
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SignUpScreenController sucontroller = Get.put(SignUpScreenController());
     final _formKey = GlobalKey<FormState>();
     var width = Get.width;
-    var SocialAppIconSize = Get.height * 0.03;
-    var _value = false.obs;
-    void _handleRadioValueChanged(val) {
-      _value.value = val;
-    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -33,7 +33,7 @@ class SignUpScreen extends StatelessWidget {
             key: _formKey,
             child: ListView(
               children: [
-                SizedBox(height: 70,),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 30),
                   child: Align(
@@ -47,47 +47,225 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 //
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: TextFormField(
+                    controller: sucontroller.firstname,
+                      style: TextStyle(
+                          height: 0.5
+                      ),
                       decoration: InputDecoration(
+                        errorStyle: TextStyle(
+                          color: Colors.red
+                        ),
+                          hintText: "First Name",
+                          labelText: "First Name",
+                          labelStyle: TextStyle(
+                            color: Colors.green
+                          ),
+                          suffixIcon: Icon(CupertinoIcons.person_alt,
+                          color: Colors.green,),
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey)
+                          ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.green)
+                        ),
+                        focusColor: Colors.green
+                      ),
+
+                    validator: (val){
+                      if(val!.isEmpty){
+                        return "Please enter first name";
+                      }
+                    },
+                  ),
+                ),
+                //
+                //
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                  child: TextFormField(
+                    validator: (val){
+                      if(val!.isEmpty){
+                        return "Please enter last name";
+                      }
+                    },
+                    controller: sucontroller.lastname,
+                      style: TextStyle(
+                          height: 0.5
+                      ),
+                      decoration: InputDecoration(
+                        errorStyle: TextStyle(
+                            color: Colors.red
+                        ),
+
+                          labelStyle: TextStyle(
+                              color: Colors.green
+                          ),
+                          hintText: "Last Name",
+                          labelText: "Last Name",
+                          suffixIcon: Icon(CupertinoIcons.person,
+                          color: Colors.green,),
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green)
+                          ),
+
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green)
+                          ),
+                          focusColor: Colors.green,
+
+                      )
+                  ),
+                ),
+                //
+                //
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                  child: TextFormField(
+                    validator: (val){
+                     /* if(val!= EmailValidator.validate(val.toString())){
+                        return "Enter valid email";
+                      }*/
+                      if(val == ""){
+                        return "Enter email";
+                      }
+                    },
+                    controller: sucontroller.email,
+                      style: TextStyle(
+                          height: 0.5
+                      ),
+                      decoration: InputDecoration(
+                          errorStyle: TextStyle(
+                              color: Colors.red
+                          ),
+                          labelStyle: TextStyle(
+                              color: Colors.green
+                          ),
                           hintText: "Email",
                           labelText: "Email",
-                          suffixIcon: Icon(CupertinoIcons.mail),
+                          suffixIcon: Icon(CupertinoIcons.mail,
+                          color: Colors.green,),
                           border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)
-                        )
-                      )
-                  ),
-                ),
-                //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                  child: TextFormField(
-                      decoration: InputDecoration(
-                          hintText: "Password",
-                          labelText: "Password",
-                          suffixIcon: Icon(CupertinoIcons.eye_slash_fill,
+                          borderSide: BorderSide(color: Colors.green)
+                        ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green)
                           ),
-                          border: OutlineInputBorder()
-                      )
+                          focusColor: Colors.green
+                      ),
                   ),
-                ),
-                //
-                //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                  child: TextFormField(
-                      decoration: InputDecoration(
-                          hintText: "Confirm Password",
-                          labelText: "Confirm Password",
-                          suffixIcon: Icon(CupertinoIcons.eye_slash_fill),
-                          border: OutlineInputBorder()
-                      )
-                  ),
-                ),
-                //
 
+                ),
+                //
+                Obx(
+                    ()=> Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                    child: TextFormField(
+                      obscureText: sucontroller.isHidepass.value,
+                      validator: (String? val){
+                        if(val!.isEmpty){
+                          return "Enter password";
+                        }else if (val!.length < 8){
+                          return "Enter mini 8 digit password";
+                        }
+                      },
+                      controller: sucontroller.password,
+                        style: TextStyle(
+                            height: 0.5
+                        ),
+                        decoration: InputDecoration(
+                            errorStyle: TextStyle(
+                                color: Colors.red
+                            ),
+                            labelStyle: TextStyle(
+                                color: Colors.green
+                            ),
+                            hintText: "Password",
+                            labelText: "Password",
+                            suffixIcon: GestureDetector(
+                              onTap: (){
+                                if(sucontroller.isHidepass.value == true){
+                                  sucontroller.isHidepass.value = false;
+                                }else{
+                                  sucontroller.isHidepass.value = true;
+                                }
+                              },
+                              child: (sucontroller.isHidepass.value == true)?Icon(CupertinoIcons.eye_slash_fill,
+                                color: Colors.green,
+                              ):Icon(CupertinoIcons.eye,
+                              color: Colors.green,)
+                            ),
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+                            focusColor: Colors.green
+                        )
+                    ),
+                  ),
+                ),
+                //
+                //
+                Obx(
+                    ()=> Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                    child: TextFormField(
+                      validator: (val){
+                        if(val!.isEmpty){
+                          return "Enter password";
+                        }
+                        else if(sucontroller.password.value != sucontroller.confirmpassword.value) {
+                          return "Password doesn't match";
+                        }
+                      },
+                        obscureText: sucontroller.isHideconpass.value,
+                      controller: sucontroller.confirmpassword,
+                        style: TextStyle(
+                            height: 0.5
+                        ),
+                        decoration: InputDecoration(
+                            errorStyle: TextStyle(
+                                color: Colors.red
+                            ),
+                            labelStyle: TextStyle(
+                                color: Colors.green
+                            ),
+
+                            hintText: "Confirm Password",
+                            labelText: "Confirm Password",
+                            suffixIcon: GestureDetector(
+                              onTap: (){
+                                if(sucontroller.isHideconpass.value == true){
+                                  sucontroller.isHideconpass.value = false;
+                                }else{
+                                  sucontroller.isHideconpass.value = true;
+                                }
+                              },
+                              child:(sucontroller.isHideconpass.value == true)?Icon(CupertinoIcons.eye_slash_fill,
+                                color: Colors.green,
+                              ):Icon(CupertinoIcons.eye,
+                                color: Colors.green,)
+                            ),
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+                            focusColor: Colors.green
+                        )
+                    ),
+                  ),
+                ),
+                //
                 //
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 25),
@@ -101,51 +279,15 @@ class SignUpScreen extends StatelessWidget {
                               fontSize: width * 0.05
                           ),),
                         onPressed: (){
-
+                          if(_formKey.currentState!.validate()){
+                            sucontroller.SignUp();
+                            print("tap");
+                          }
                         }),
                   ),
                 ),
                 //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
-                  child: Row(
-                    children: [
-                      Expanded(child: Divider(color: Colors.grey,)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Text("or",
-                          style: TextStyle(
-                              color: Colors.grey
-                          ),),
-                      ),
-                      Expanded(child: Divider(color: Colors.grey,)),
-                    ],
-                  ),
-                ),
-                //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 118),
-                  child: Container(
-                    width: Get.width,
-                    //height: 100,
-                    //color: Colors.pink,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FaIcon(FontAwesomeIcons.facebook,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                        FaIcon(FontAwesomeIcons.instagram,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                        FaIcon(FontAwesomeIcons.twitter,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                      ],
-                    ),
-                  ),
-                ),
-                //
+
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 50),

@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,12 +8,14 @@ import 'package:get/get_core/src/get_main.dart';
 import '../Dashboard/Dashboard.dart';
 import '../Payment/PaymentScreen.dart';
 import '../SignUp/SignUpScreen.dart';
+import 'SignInController.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    signInController sicontroller = Get.put(signInController());
     final _formKey = GlobalKey<FormState>();
     var width = Get.width;
     var SocialAppIconSize = Get.height * 0.03;
@@ -50,25 +53,93 @@ class SignInScreen extends StatelessWidget {
                 ),
                 //
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: TextFormField(
-                      decoration: InputDecoration(
-                          hintText: "User Id",
-                          labelText: "User Id",
-                          suffixIcon: Icon(CupertinoIcons.mail),
-                          border: OutlineInputBorder()
-                      )
+                    validator: (val){
+                      if(val!= EmailValidator.validate(val.toString())){
+                        return "Enter valid email";
+                      }else if(val == ""){
+                        return "Enter email";
+                      }
+                    },
+
+                    style: TextStyle(
+                        height: 0.5
+                    ),
+                    decoration: InputDecoration(
+                        errorStyle: TextStyle(
+                            color: Colors.red
+                        ),
+                        labelStyle: TextStyle(
+                            color: Colors.green
+                        ),
+                        hintText: "Email",
+                        labelText: "Email",
+                        suffixIcon: Icon(CupertinoIcons.mail,
+                          color: Colors.green,),
+                        border: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.green)
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.green)
+                        ),
+                        focusColor: Colors.green
+                    ),
                   ),
+
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                  child: TextFormField(
-                      decoration: InputDecoration(
-                          hintText: "Password",
-                          labelText: "Password",
-                          suffixIcon: Icon(CupertinoIcons.eye_slash_fill),
-                          border: OutlineInputBorder()
-                      )
+                //
+                Obx(
+                    ()=> Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                    child: TextFormField(
+                      obscureText: sicontroller.isHidepass.value,
+                        validator: (String? val){
+                          if(val!.isEmpty){
+                            return "Enter password";
+                          }else if (val!.length < 8){
+                            return "Enter mini 8 digit password";
+                          }
+                        },
+
+                        style: TextStyle(
+                            height: 0.5
+                        ),
+                        decoration: InputDecoration(
+                            errorStyle: TextStyle(
+                                color: Colors.red
+                            ),
+                            labelStyle: TextStyle(
+                                color: Colors.green
+                            ),
+                            hintText: "Password",
+                            labelText: "Password",
+                            suffixIcon: GestureDetector(
+                              onTap: (){
+                                if(sicontroller.isHidepass.value == true){
+                                  sicontroller.isHidepass.value = false;
+                                }else{
+                                  sicontroller.isHidepass.value = true;
+                                }
+                              },
+                              child:(sicontroller.isHidepass.value == true)?Icon(CupertinoIcons.eye_slash_fill,
+                                color: Colors.green,
+                              ):Icon(CupertinoIcons.eye,
+                                color: Colors.green,),
+                            ),
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+
+
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green)
+                            ),
+                            focusColor: Colors.green
+                        )
+                    ),
                   ),
                 ),
                 //
@@ -82,6 +153,7 @@ class SignInScreen extends StatelessWidget {
                       children: [
 
                         Checkbox(
+                          activeColor: Colors.green,
                             value: _value.value,
                             onChanged: _handleRadioValueChanged
                         ), //Ch
@@ -122,45 +194,6 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
-                  child: Row(
-                    children: [
-                        Expanded(child: Divider(color: Colors.grey,)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Text("or",
-                        style: TextStyle(
-                          color: Colors.grey
-                        ),),
-                      ),
-                      Expanded(child: Divider(color: Colors.grey,)),
-                    ],
-                  ),
-                ),
-                //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 118),
-                  child: Container(
-                    width: Get.width,
-                    //height: 100,
-                    //color: Colors.pink,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FaIcon(FontAwesomeIcons.facebook,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                        FaIcon(FontAwesomeIcons.instagram,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                        FaIcon(FontAwesomeIcons.twitter,
-                          color: Colors.grey,
-                          size: SocialAppIconSize,),
-                      ],
-                    ),
-                  ),
-                ),
                 //
                 Center(
                   child: Padding(

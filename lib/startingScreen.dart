@@ -18,8 +18,10 @@ class startingScreen extends StatelessWidget {
     PageController();
 
     List<String> imagesUrl = [
-      "assets/logo.JPG",
-      "assets/logo.JPG",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-2.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
+      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
     ];
     return Scaffold(
       body: SafeArea(
@@ -30,10 +32,17 @@ class startingScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Center(
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundImage: AssetImage("assets/f.png"),
-                  ),
+                  child:Container(
+                    width: Get.width * 0.3,
+                    height: Get.height * 0.15,
+                    decoration: BoxDecoration(
+                      image:
+                      DecorationImage(
+                          image:AssetImage("assets/logo.png"),fit: BoxFit.fill),
+                      color: Colors.black,
+                      shape: BoxShape.circle,
+                    ),
+                  )
                 ),
               ),
               Padding(
@@ -45,18 +54,19 @@ class startingScreen extends StatelessWidget {
                   child:  PageView.builder(
                     controller: _pageController,
                     itemCount: imagesUrl.length,
+                    
                     itemBuilder: (_, index) => Column(
                       children: [
                         Container(
                           width: Get.width ,
                           height: Get.height * 0.3,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Colors.grey.shade100,
                             image: DecorationImage(
-                                image: AssetImage(
+                                image: NetworkImage(
                                   imagesUrl[index],
                                 ),
-                                fit: BoxFit.cover),
+                                fit: BoxFit.fill),
                           ),
                         ),
                         //
