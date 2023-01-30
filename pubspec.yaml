@@ -49,7 +49,7 @@ dependencies:
   charts_flutter:
   email_validator: ^2.1.17
   http: ^0.13.5
-  flutter_stripe:
+  flutter_paypal: ^0.0.8
 
   
 
