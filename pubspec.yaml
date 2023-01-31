@@ -50,6 +50,7 @@ dependencies:
   email_validator: ^2.1.17
   http: ^0.13.5
   flutter_paypal: ^0.0.8
+  shared_preferences: ^2.0.17
 
   
 

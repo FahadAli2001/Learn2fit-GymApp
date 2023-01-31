@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: TextFormField(
-                    controller: sucontroller.firstname,
+                    controller: sucontroller.username,
                       style: TextStyle(
                           height: 0.5
                       ),
@@ -57,8 +57,8 @@ class SignUpScreen extends StatelessWidget {
                         errorStyle: TextStyle(
                           color: Colors.red
                         ),
-                          hintText: "First Name",
-                          labelText: "First Name",
+                          hintText: "User Name",
+                          labelText: "User Name",
                           labelStyle: TextStyle(
                             color: Colors.green
                           ),
@@ -82,46 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 //
-                //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-                  child: TextFormField(
-                    validator: (val){
-                      if(val!.isEmpty){
-                        return "Please enter last name";
-                      }
-                    },
-                    controller: sucontroller.lastname,
-                      style: TextStyle(
-                          height: 0.5
-                      ),
-                      decoration: InputDecoration(
-                        errorStyle: TextStyle(
-                            color: Colors.red
-                        ),
 
-                          labelStyle: TextStyle(
-                              color: Colors.green
-                          ),
-                          hintText: "Last Name",
-                          labelText: "Last Name",
-                          suffixIcon: Icon(CupertinoIcons.person,
-                          color: Colors.green,),
-                          border: OutlineInputBorder(),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.green)
-                          ),
-
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.green)
-                          ),
-                          focusColor: Colors.green,
-
-                      )
-                  ),
-                ),
-                //
-                //
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: TextFormField(

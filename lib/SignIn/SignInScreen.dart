@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Dashboard/Dashboard.dart';
 import '../Payment/PaymentScreen.dart';
@@ -19,10 +20,6 @@ class SignInScreen extends StatelessWidget {
     final _formKey = GlobalKey<FormState>();
     var width = Get.width;
     var SocialAppIconSize = Get.height * 0.03;
-    var _value = false.obs;
-    void _handleRadioValueChanged(val) {
-      _value.value = val;
-    }
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -32,6 +29,7 @@ class SignInScreen extends StatelessWidget {
         },
             icon: Icon(CupertinoIcons.back,color: Colors.black,)),
       ),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
@@ -55,11 +53,10 @@ class SignInScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: TextFormField(
+                    controller: sicontroller.username,
                     validator: (val){
-                      if(val!= EmailValidator.validate(val.toString())){
-                        return "Enter valid email";
-                      }else if(val == ""){
-                        return "Enter email";
+                       if(val == ""){
+                        return "Enter user-name";
                       }
                     },
 
@@ -73,8 +70,8 @@ class SignInScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                             color: Colors.green
                         ),
-                        hintText: "Email",
-                        labelText: "Email",
+                        hintText: "User Name",
+                        labelText: "User Name",
                         suffixIcon: Icon(CupertinoIcons.mail,
                           color: Colors.green,),
                         border: OutlineInputBorder(),
@@ -87,13 +84,13 @@ class SignInScreen extends StatelessWidget {
                         focusColor: Colors.green
                     ),
                   ),
-
                 ),
                 //
                 Obx(
                     ()=> Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                     child: TextFormField(
+                      controller: sicontroller.password,
                       obscureText: sicontroller.isHidepass.value,
                         validator: (String? val){
                           if(val!.isEmpty){
@@ -132,8 +129,6 @@ class SignInScreen extends StatelessWidget {
                             focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.green)
                             ),
-
-
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.green)
                             ),
@@ -143,39 +138,41 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 //
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Container(
-                    height: Get.height * 0.06,
-                    width: Get.width,
-                    //color: Colors.red,
-                    child: Obx(() => Row(
-                      children: [
-
-                        Checkbox(
-                          activeColor: Colors.green,
-                            value: _value.value,
-                            onChanged: _handleRadioValueChanged
-                        ), //Ch
-                        Text("Remember me",
-                          style: TextStyle(
-                              fontSize: width * 0.04
+                Obx(
+                    ()=> Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Container(
+                      height: Get.height * 0.06,
+                      width: Get.width,
+                      //color: Colors.red,
+                      child:  Row(
+                        children: [
+                          Checkbox(
+                            activeColor: Colors.green,
+                              value: sicontroller.isrem.value,
+                              onChanged: sicontroller.handleRadioValueChanged
+                          ), //Ch
+                          Text("Remember me",
+                            style: TextStyle(
+                                fontSize: width * 0.04
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 60),
-                          child: TextButton(onPressed: (){},
-                              child: Text("Forget Password?",
-                              style: TextStyle(
-                                color: Colors.grey
-                              ),)),
-                        )
-
-                      ],
-                    ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 60),
+                            child: TextButton(onPressed: (){
+                             // print("object");
+                            },
+                                child: Text("Forget Password?",
+                                style: TextStyle(
+                                  color: Colors.grey
+                                ),)),
+                          )
+                        ],
+                      ),
+                      ),
                     ),
                   ),
-                ),
+
                 //
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 25),
@@ -189,7 +186,10 @@ class SignInScreen extends StatelessWidget {
                               fontSize: width * 0.05
                           ),),
                         onPressed: (){
-                          Get.to(PaymentScreen());
+                          if(_formKey.currentState!.validate()){
+                            print("tapp");
+                            sicontroller.SignIn();
+                          }
                         }),
                   ),
                 ),

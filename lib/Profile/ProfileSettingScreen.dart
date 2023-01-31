@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../SignIn/SignInController.dart';
+
 class ProfileSettingScreen extends StatelessWidget {
   const ProfileSettingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    signInController signController = Get.put(signInController());
     Color btncolor = Colors.black;
     var btnwidth = Get.width * 0.04;
     return SafeArea(child: Scaffold(
@@ -31,7 +34,7 @@ class ProfileSettingScreen extends StatelessWidget {
           child: CupertinoButton(
             color: Colors.green,
             onPressed: (){
-
+              signController.logout();
             },
             child: Text("Log-Out",
               style: TextStyle(

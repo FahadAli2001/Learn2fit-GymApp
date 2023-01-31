@@ -6,10 +6,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:http/http.dart'as http;
-class SignUpScreenController extends GetxController{
+class SignUpScreenController extends GetxController {
 
-  TextEditingController firstname = TextEditingController();
-  TextEditingController lastname = TextEditingController();
+  TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
@@ -17,56 +16,58 @@ class SignUpScreenController extends GetxController{
   RxBool isHidepass = true.obs;
   var isHideconpass = true.obs;
 
+
+
   void SignUp()async{
-    String? _firstname = firstname.text.toString();
-    String _lastname = lastname.text.toString();
+    String _username = username.text.toString();
     String _email = email.text.toString();
     String _password = password.text.toString();
     String _conpassword = confirmpassword.text.toString();
 
     try{
-
       var response =await http.post(
-        Uri.parse("https://www.learn2fitt.com/wp-json/wp/v2/users"),
+          Uri.parse("https://www.learn2fitt.com/wp-json/wp/v2/users"),
           headers: {
             'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3NTA3NTg2MSwiZXhwIjoxODMyNzU1ODYxfQ.EdiIHqNip1Qhvp_kNZzEYJkvDWZcrpZ5Psb_q4zTxMw',
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy5sZWFybjJmaXR0LmNvbSIsImlhdCI6MTY3NTE1ODY0OCwibmJmIjoxNjc1MTU4NjQ4LCJleHAiOjE2NzU3NjM0NDgsImRhdGEiOnsidXNlciI6eyJpZCI6MSwiZGV2aWNlIjoiIiwicGFzcyI6IjkzNTdmZGI1NDgxYzA1OTBmZTViMDYyZmVkYWQ2OTYwIn19fQ.wF-k41ACA6-rb3xwUeo42FfTz2ap7dvSTiYheG9KfJU',
           },
-        body: {
-          "username":_firstname+_lastname,
-          "email":_email,
-          "password":_password
-        }
+          body: {
+            "username":_username,
+            "email":_email,
+            "password":_password
+          }
       );
-      print("method called");
-      if(response.statusCode==201){
 
+      if(response.statusCode==201){
+        print("method called");
         var data = jsonDecode(response.body.toString());
-        print(data);
+        //print(data);
         clearFileds();
         print("user created");
         Get.snackbar("","User Created Successfully",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.grey.shade100,
-        colorText: Colors.green);//print(_email);
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.grey,
+            colorText: Colors.black);//print(_email);
+      }else{
+        print("object");
       }
     }catch(e){
       print(e.toString()+"errorrrrrrrrrrrrrrrrrrrrrrrr");
       Get.snackbar("","SomeThing went wrong",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.grey,
-          colorText: Colors.green);//print(_email);
+          colorText: Colors.black);//print(_email);
     }
 
-    }
+  }
 
+  void clearFileds(){
 
-    void clearFileds(){
-    firstname.clear();
-    lastname.clear();
+    username.clear();
     email.clear();
     password.clear();
     confirmpassword.clear();
-    }
   }
+
+}
 

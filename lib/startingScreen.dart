@@ -3,9 +3,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'Dashboard/Dashboard.dart';
+import 'Plans/PlansScreen.dart';
+import 'SignIn/SignInController.dart';
 import 'SignIn/SignInScreen.dart';
 
 class startingScreen extends StatelessWidget {
@@ -13,6 +16,9 @@ class startingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    signInController signcon = Get.put(signInController());
+
 
     final PageController _pageController =
     PageController();
@@ -109,8 +115,12 @@ class startingScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 50),
                 child: Center(
                   child: GestureDetector(
-                    onTap: (){
-                      Get.to(Dashboard());
+                    onTap: ()async{
+                      final sp = await SharedPreferences.getInstance() ;
+                      print(sp.getString("email"));
+                      print(sp.getString("password"));
+                      (sp.getString("email") !=null)
+                          ?Get.to(PlansScreen()):Get.to(Dashboard());
                     },
                     child: CircleAvatar(
                       radius: 30,
