@@ -10,6 +10,7 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 
 import '../ChatWithCoach/ChatWithCoach.dart';
+import '../ContactUs/ContactUsScreen.dart';
 import '../Profile/ProfileSettingScreen.dart';
 import '../transformPackages/transformPackages.dart';
 
@@ -31,8 +32,7 @@ class _DashboardState extends State<Dashboard> {
           children: <Widget>[
             homePage(),
             transformPackages(),
-            ChatWithCoach(),
-
+            ContactUsScreen(),
           ],
         ),
         extendBody: true,
@@ -46,8 +46,8 @@ class _DashboardState extends State<Dashboard> {
                 label: 'Home', activeColor: Colors.green),
             RollingBottomBarItem(Icons.compare_arrows_outlined,
                 label: 'Transform', activeColor: Colors.green),
-            RollingBottomBarItem(Icons.chat,
-                label: 'Chat', activeColor: Colors.green),
+            RollingBottomBarItem(Icons.contact_support,
+                label: 'Contact-Us', activeColor: Colors.green),
 
           ],
           enableIconRotation: true,
