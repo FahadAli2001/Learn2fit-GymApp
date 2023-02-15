@@ -52,6 +52,7 @@ dependencies:
   http: ^0.13.5
   flutter_paypal: ^0.0.8
   shared_preferences: ^2.0.17
+  woocommerce_api: ^0.1.0
 
 
   
