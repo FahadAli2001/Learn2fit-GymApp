@@ -136,7 +136,9 @@ class transformPackages extends StatelessWidget {
                                       style: TextStyle(
                                           color: Colors.white
                                       ),),
-                                    onPressed: (){}),
+                                    onPressed: (){
+                                      Get.to(PaymentScreen());
+                                    }),
                               )
                             ],
                           ),
