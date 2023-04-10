@@ -10,7 +10,7 @@ class InsightScreen extends StatelessWidget {
       BarChartModel(
         day: "mon",
         weight: 8,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
       BarChartModel(
         day: "tue",
@@ -20,29 +20,28 @@ class InsightScreen extends StatelessWidget {
       BarChartModel(
         day: "wed",
         weight: 10,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
       BarChartModel(
         day: "thur",
         weight: 10,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
       BarChartModel(
         day: "fri",
         weight: 10,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
       BarChartModel(
         day: "sat",
         weight: 10,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
       BarChartModel(
         day: "sun",
         weight: 10,
-        color: charts.ColorUtil.fromDartColor(Color(0xFF47505F)),
+        color: charts.ColorUtil.fromDartColor(const Color(0xFF47505F)),
       ),
-
     ];
     List<charts.Series<BarChartModel, String>> series = [
       charts.Series(
@@ -57,24 +56,20 @@ class InsightScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Text("Weight"),
-      Container(
-        height: 300,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: charts.BarChart(
-        series,
-        //animate: true,
-      ),
-    ),
-
-
+          const Text("Weight"),
+          Container(
+            height: 300,
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: charts.BarChart(
+              series,
+              //animate: true,
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
 
 class BarChartModel {
   String day;
@@ -85,6 +80,5 @@ class BarChartModel {
     required this.day,
     required this.weight,
     required this.color,
-  }
-      );
+  });
 }

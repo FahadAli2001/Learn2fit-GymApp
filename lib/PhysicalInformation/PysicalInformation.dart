@@ -1,51 +1,53 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../ClassTimimgs/ClassTimings.dart';
 
 class PysicalInformation extends StatelessWidget {
-  const PysicalInformation({Key? key}) : super(key: key);
+  PysicalInformation({Key? key}) : super(key: key);
+
+  var height = 1.obs;
+  var weight = 1.obs;
+  var targetWeight = 1.obs;
+  var waistSize = 10.obs;
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
-    var height = 1.obs;
-    var weight = 1.obs;
-    var target_weight = 1.obs;
-    var waist_size = 10.obs;
-    var textsize =Get.width* 0.045;
-    return SafeArea(child:
-    Scaffold(
+    return SafeArea(
+        child: Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white70,
-        title: Text("Physical Information",
-          style: TextStyle(
-              color: Colors.black
-          ),),
+        title: const Text(
+          "Physical Information",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
       ),
       bottomNavigationBar: Container(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
           child: CupertinoButton(
             color: Colors.green,
-            onPressed: (){
-              Get.to(ClassTimings());
+            onPressed: () {
+              Get.to(const ClassTimings());
             },
-            child: Text("Next",
+            child: const Text(
+              "Next",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 // fontSize: Get.width * 0.06
-              ),),
+              ),
+            ),
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Column(
             children: [
               Padding(
@@ -53,27 +55,31 @@ class PysicalInformation extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Height",
+                      Text(
+                        "Height",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: textsize
-                        ),),
+                            fontSize: textsize),
+                      ),
                       //
                       Obx(
-                            ()=> Text(height.value.toString() + " " + "cm",
+                        () => Text(
+                          "${height.value} cm",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: textsize
-                          ),),
+                              fontSize: textsize),
+                        ),
                       ),
                     ],
-                  )
-              ),
+                  )),
               //
               Obx(
-                    ()=> Slider(
+                () => Slider(
+                  thumbColor: Colors.green,
+                  activeColor: Colors.green,
+                  inactiveColor: Colors.green,
                   value: height.value.toDouble(),
                   min: 1,
                   max: 310,
@@ -90,27 +96,28 @@ class PysicalInformation extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Weight",
+                      Text(
+                        "Weight",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: textsize
-                        ),),
+                            fontSize: textsize),
+                      ),
                       //
                       Obx(
-                            ()=> Text(weight.value.toString() + " " + "kg",
+                        () => Text(
+                          "${weight.value} kg",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: textsize
-                          ),),
+                              fontSize: textsize),
+                        ),
                       ),
                     ],
-                  )
-              ),
+                  )),
               //
               Obx(
-                    ()=> Slider(
+                () => Slider(
                   value: weight.value.toDouble(),
                   min: 1,
                   max: 310,
@@ -127,34 +134,35 @@ class PysicalInformation extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Target Weight",
+                      Text(
+                        "Target Weight",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: textsize
-                        ),),
+                            fontSize: textsize),
+                      ),
                       //
                       Obx(
-                            ()=> Text(target_weight.value.toString() + " " + "kg",
+                        () => Text(
+                          "${targetWeight.value} kg",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: textsize
-                          ),),
+                              fontSize: textsize),
+                        ),
                       ),
                     ],
-                  )
-              ),
+                  )),
               //
               Obx(
-                    ()=> Slider(
-                  value: target_weight.value.toDouble(),
+                () => Slider(
+                  value: targetWeight.value.toDouble(),
                   min: 1,
                   max: 310,
                   divisions: 310,
-                  label: '$target_weight',
+                  label: '$targetWeight',
                   onChanged: (double newValue) {
-                    target_weight.value = newValue.toInt();
+                    targetWeight.value = newValue.toInt();
                   },
                 ),
               ),
@@ -164,34 +172,35 @@ class PysicalInformation extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Waist Size",
+                      Text(
+                        "Waist Size",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: textsize
-                        ),),
+                            fontSize: textsize),
+                      ),
                       //
                       Obx(
-                            ()=> Text(waist_size.value.toString() + " " + "cm",
+                        () => Text(
+                          "${waistSize.value} cm",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: textsize
-                          ),),
+                              fontSize: textsize),
+                        ),
                       ),
                     ],
-                  )
-              ),
+                  )),
               //
               Obx(
-                    ()=> Slider(
-                  value: waist_size.value.toDouble(),
+                () => Slider(
+                  value: waistSize.value.toDouble(),
                   min: 1,
                   max: 150,
                   divisions: 150,
-                  label: '$waist_size',
+                  label: '$waistSize',
                   onChanged: (double newValue) {
-                    waist_size.value = newValue.toInt();
+                    waistSize.value = newValue.toInt();
                   },
                 ),
               ),

@@ -32,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
           children: <Widget>[
             homePage(),
             transformPackages(),
-            ContactUsScreen(),
+            const ContactUsScreen(),
           ],
         ),
         extendBody: true,
@@ -41,14 +41,13 @@ class _DashboardState extends State<Dashboard> {
           controller: _controller,
           flat: true,
           // useActiveColorByDefault: false,
-          items: [
+          items: const [
             RollingBottomBarItem(Icons.home,
                 label: 'Home', activeColor: Colors.green),
             RollingBottomBarItem(Icons.compare_arrows_outlined,
                 label: 'Transform', activeColor: Colors.green),
             RollingBottomBarItem(Icons.contact_support,
                 label: 'Contact-Us', activeColor: Colors.green),
-
           ],
           enableIconRotation: true,
           onTap: (index) {
