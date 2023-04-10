@@ -130,7 +130,7 @@ class PlansDetailScreen extends StatelessWidget {
                 ),
                 //
                 if (Mealplan.value == true) ...[
-                  MealPlan()
+                  const MealPlan()
                 ] else if (Trainingplan.value == true) ...[
                   TrainingPlan()
                 ] else if (progress.value == true) ...[

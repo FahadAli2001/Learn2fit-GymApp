@@ -125,7 +125,7 @@ class SignUpScreen extends StatelessWidget {
                           if (val!.isEmpty) {
                             return "Enter password";
                           } else if (val!.length < 8) {
-                            return "Enter mini 8 digit password";
+                            return "Enterd mini 8 digit password";
                           }
                         },
                         controller: sucontroller.password,
@@ -174,6 +174,7 @@ class SignUpScreen extends StatelessWidget {
                               sucontroller.confirmpassword.value) {
                             return "Password doesn't match";
                           }
+                          return null;
                         },
                         obscureText: sucontroller.isHideconpass.value,
                         controller: sucontroller.confirmpassword,
@@ -239,7 +240,7 @@ class SignUpScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 50),
                     child: InkWell(
                       onTap: () {
-                        Get.to(const SignInScreen());
+                        Get.to(() => SignInScreen());
                       },
                       child: RichText(
                         text: TextSpan(

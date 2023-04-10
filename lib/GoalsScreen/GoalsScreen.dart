@@ -23,7 +23,7 @@ class GoalsScreen extends StatelessWidget {
             child: CupertinoButton(
               color: Colors.green,
               onPressed: () {
-                Get.to(const UserDataScreen());
+                Get.to(() => UserDataScreen());
               },
               child: const Text(
                 "Next",
