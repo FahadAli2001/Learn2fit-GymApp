@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../Utils/utils.dart';
+
+// ignore: must_be_immutable
 class ExerciseScreen extends StatelessWidget {
-  const ExerciseScreen({Key? key}) : super(key: key);
+  ExerciseScreen({Key? key}) : super(key: key);
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class ExerciseScreen extends StatelessWidget {
         ),
         title: Text(
           "Day ${data['dayvalue']}",
-          style: const TextStyle(color: Colors.black),
+          style: TextStyle(color: ut.textColor),
         ),
       ),
       body: SingleChildScrollView(
@@ -62,7 +66,7 @@ class ExerciseScreen extends StatelessWidget {
                           "Jumping Jack",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontSize: Get.width * 0.045),
                         ),
                       ),

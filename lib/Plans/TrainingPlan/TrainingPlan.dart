@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../Exercises/ExerciseScreen.dart';
 
+// ignore: must_be_immutable
 class TrainingPlan extends StatelessWidget {
   TrainingPlan({Key? key}) : super(key: key);
 
@@ -10,6 +11,7 @@ class TrainingPlan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var currentindex = 0.obs;
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,7 +31,7 @@ class TrainingPlan extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: GestureDetector(
                     onTap: () {
-                      Get.to(const ExerciseScreen(),
+                      Get.to(() => ExerciseScreen(),
                           arguments: {"dayvalue": i.toString()});
                       currentindex.value = i;
                     },

@@ -1,3 +1,7 @@
+// ignore_for_file: must_be_immutable
+
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal/flutter_paypal.dart';
@@ -6,9 +10,11 @@ import 'package:get/get.dart';
 import '../GoalsScreen/GoalsScreen.dart';
 import '../SignIn/SignInScreen.dart';
 import '../SignUp/SignUpScreen.dart';
+import '../Utils/utils.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
+  PaymentScreen({Key? key}) : super(key: key);
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +39,7 @@ class PaymentScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
         ),
+        // ignore: avoid_unnecessary_containers
         bottomNavigationBar: Container(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
@@ -88,7 +95,7 @@ class PaymentScreen extends StatelessWidget {
                               child: Text(
                                 "Package Name",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: Get.width * 0.05),
                               ),
@@ -118,7 +125,7 @@ class PaymentScreen extends StatelessWidget {
                               child: Text(
                                 "Amount",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: Get.width * 0.05),
                               ),
@@ -155,12 +162,13 @@ class PaymentScreen extends StatelessWidget {
                           fontSize: Get.width * 0.05),
                     ),
                     //
+                    // ignore: avoid_unnecessary_containers
                     Container(
                       child: Row(
                         children: [
                           TextButton(
                               onPressed: () {
-                                Get.to(SignInScreen());
+                                Get.to(() => SignInScreen());
                               },
                               child: const Text(
                                 "Login",
@@ -176,7 +184,7 @@ class PaymentScreen extends StatelessWidget {
                           //
                           TextButton(
                               onPressed: () {
-                                Get.to(SignUpScreen());
+                                Get.to(() => SignUpScreen());
                               },
                               child: const Text(
                                 "Signup",
@@ -298,6 +306,7 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Obx(
+                  // ignore: sized_box_for_whitespace
                   () => Container(
                     height: Get.height * 0.06,
                     width: Get.width,
@@ -317,6 +326,7 @@ class PaymentScreen extends StatelessWidget {
               ),
               //
               Obx(() => (payment.value == "Direct Bank Transfer")
+                  // ignore: avoid_unnecessary_containers
                   ? Container(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -340,6 +350,7 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Obx(
+                  // ignore: sized_box_for_whitespace
                   () => Container(
                     height: Get.height * 0.06,
                     width: Get.width,
@@ -366,6 +377,7 @@ class PaymentScreen extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class paypalscreen extends StatelessWidget {
   const paypalscreen({Key? key}) : super(key: key);
 
@@ -406,13 +418,13 @@ class paypalscreen extends StatelessWidget {
           ],
           note: "Contact us for any questions on your order.",
           onSuccess: (Map params) async {
-            print("onSuccess: $params");
+            log("onSuccess: $params");
           },
           onError: (error) {
-            print("onError: $error");
+            log("onError: $error");
           },
           onCancel: (params) {
-            print('cancelled: $params');
+            log('cancelled: $params');
           }),
     );
   }

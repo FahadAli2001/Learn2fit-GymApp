@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -202,7 +204,7 @@ class ContactUsScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                         onTap: () {
-                          print("object");
+                          log("object");
                           cuc.instagramLaunch();
                         },
                         child: FaIcon(FontAwesomeIcons.instagram,

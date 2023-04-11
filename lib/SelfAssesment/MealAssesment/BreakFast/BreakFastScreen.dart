@@ -1,14 +1,22 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../Utils/utils.dart';
+
 class BreakFastScreen extends StatelessWidget {
-  const BreakFastScreen({Key? key}) : super(key: key);
+  BreakFastScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
     var isEat = "eat".obs;
-    var textsize = Get.width * 0.045;
+
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -34,7 +42,7 @@ class BreakFastScreen extends StatelessWidget {
                 child: Text(
                   "Targets",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: ut.textColor,
                       fontWeight: FontWeight.bold,
                       fontSize: Get.width * 0.05),
                 ),
@@ -56,7 +64,7 @@ class BreakFastScreen extends StatelessWidget {
                       Text(
                         "Milk",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -107,7 +115,7 @@ class BreakFastScreen extends StatelessWidget {
                       Text(
                         "Daal Chawal",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),

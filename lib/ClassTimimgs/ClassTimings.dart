@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 
 import '../Plans/PlansScreen.dart';
 
+// ignore: must_be_immutable
 class ClassTimings extends StatelessWidget {
-  const ClassTimings({Key? key}) : super(key: key);
+  ClassTimings({Key? key}) : super(key: key);
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,6 @@ class ClassTimings extends StatelessWidget {
       _value.value = val;
     }
 
-    var textsize = Get.width * 0.045;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -30,13 +31,14 @@ class ClassTimings extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
           child: CupertinoButton(
             color: Colors.green,
             onPressed: () {
-              Get.to(const PlansScreen());
+              Get.to(() => const PlansScreen());
             },
             child: const Text(
               "Done",
@@ -71,10 +73,12 @@ class ClassTimings extends StatelessWidget {
               //
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 60),
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   child: Column(
                     children: [
                       Obx(
+                        // ignore: sized_box_for_whitespace
                         () => Container(
                           height: Get.height * 0.06,
                           width: Get.width,
@@ -97,6 +101,7 @@ class ClassTimings extends StatelessWidget {
                       ),
                       //----------
                       Obx(
+                        // ignore: sized_box_for_whitespace
                         () => Container(
                           height: Get.height * 0.06,
                           width: Get.width,
@@ -119,6 +124,7 @@ class ClassTimings extends StatelessWidget {
                       ),
                       //-------
                       Obx(
+                        // ignore: sized_box_for_whitespace
                         () => Container(
                           height: Get.height * 0.06,
                           width: Get.width,

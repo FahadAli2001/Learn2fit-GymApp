@@ -1,11 +1,16 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../UserData/UserDataScreen.dart';
+import '../Utils/utils.dart';
 
 class GoalsScreen extends StatelessWidget {
   GoalsScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   var textsize = Get.width * 0.04;
   final _value = false.obs;
@@ -17,6 +22,7 @@ class GoalsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // ignore: avoid_unnecessary_containers
         bottomNavigationBar: Container(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
@@ -48,7 +54,7 @@ class GoalsScreen extends StatelessWidget {
                     child: Text(
                       "Your Goals",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ut.textColor,
                           fontWeight: FontWeight.bold,
                           fontSize: Get.width * 0.06),
                     ),
@@ -72,6 +78,7 @@ class GoalsScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 100),
                   child: Obx(
+                    // ignore: avoid_unnecessary_containers
                     () => Container(
                       child: Column(
                         children: [
@@ -81,7 +88,7 @@ class GoalsScreen extends StatelessWidget {
                               Text(
                                 "Lose Weight",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: textsize),
                               ),
@@ -101,7 +108,7 @@ class GoalsScreen extends StatelessWidget {
                               Text(
                                 "Get Fit",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: textsize),
                               ),
@@ -121,7 +128,7 @@ class GoalsScreen extends StatelessWidget {
                               Text(
                                 "Gaining Muscle Mass",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: textsize),
                               ),
@@ -141,7 +148,7 @@ class GoalsScreen extends StatelessWidget {
                               Text(
                                 "Improve Stretching",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: textsize),
                               ),
@@ -161,7 +168,7 @@ class GoalsScreen extends StatelessWidget {
                               Text(
                                 "Be Healther",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: ut.textColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: textsize),
                               ),

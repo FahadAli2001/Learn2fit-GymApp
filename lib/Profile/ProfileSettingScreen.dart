@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../SignIn/SignInController.dart';
+import '../Utils/utils.dart';
 
+// ignore: must_be_immutable
 class ProfileSettingScreen extends StatelessWidget {
   ProfileSettingScreen({Key? key}) : super(key: key);
 
   signInController signController = Get.put(signInController());
-  Color btncolor = Colors.black;
+
   var btnwidth = Get.width * 0.04;
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +29,13 @@ class ProfileSettingScreen extends StatelessWidget {
             )),
         elevation: 0,
         backgroundColor: Colors.white70,
-        title: const Text(
+        title: Text(
           "Settings",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: ut.textColor),
         ),
         centerTitle: true,
       ),
+      // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
@@ -58,6 +62,7 @@ class ProfileSettingScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,7 +70,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Personal Info",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -87,6 +92,7 @@ class ProfileSettingScreen extends StatelessWidget {
               //
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,7 +100,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Contact Info",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -123,7 +129,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Social Info",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -152,7 +158,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Goals and Preferences",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -181,7 +187,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Password Reset",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -210,7 +216,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Privacy Controls",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),
@@ -232,6 +238,7 @@ class ProfileSettingScreen extends StatelessWidget {
               //
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -239,7 +246,7 @@ class ProfileSettingScreen extends StatelessWidget {
                       Text(
                         "Account Setting",
                         style: TextStyle(
-                            color: btncolor,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: btnwidth),
                       ),

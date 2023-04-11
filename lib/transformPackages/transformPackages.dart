@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,12 +7,16 @@ import 'package:get/get.dart';
 
 import '../Payment/PaymentScreen.dart';
 
+import '../Utils/utils.dart';
 import 'TransformPackageController.dart';
 
+// ignore: camel_case_types, must_be_immutable
 class transformPackages extends StatelessWidget {
   transformPackages({Key? key}) : super(key: key);
 
   TransformPackageController tpc = Get.put(TransformPackageController());
+
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class transformPackages extends StatelessWidget {
               );
             }
             if (snapshot.hasError) {
-              print("${snapshot.error} error");
+              log("${snapshot.error} error");
             }
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -120,7 +126,7 @@ class transformPackages extends StatelessWidget {
                                             tpc.DietPlan[i],
                                             softWrap: true,
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: ut.textColor,
                                                 fontSize: Get.width * 0.03),
                                           ),
                                         ),
@@ -145,7 +151,7 @@ class transformPackages extends StatelessWidget {
                                     style: TextStyle(color: Colors.white),
                                   ),
                                   onPressed: () {
-                                    Get.to(const PaymentScreen());
+                                    Get.to(() => PaymentScreen());
                                   }),
                             )
                           ],
@@ -225,7 +231,7 @@ class transformPackages extends StatelessWidget {
                                             tpc.Nutrition[i],
                                             softWrap: true,
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: ut.textColor,
                                                 fontSize: Get.width * 0.03),
                                           ),
                                         ),
@@ -328,7 +334,7 @@ class transformPackages extends StatelessWidget {
                                             tpc.twoMonths[i],
                                             softWrap: true,
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: ut.textColor,
                                                 fontSize: Get.width * 0.03),
                                           ),
                                         ),

@@ -1,12 +1,19 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Utils/utils.dart';
+
 class MealPlan extends StatelessWidget {
-  const MealPlan({Key? key}) : super(key: key);
+  MealPlan({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,7 +36,7 @@ class MealPlan extends StatelessWidget {
                 child: Text(
                   "Breakfast Diet Plan",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: ut.textColor,
                       fontWeight: FontWeight.bold,
                       fontSize: Get.width * 0.05),
                 ),
@@ -55,7 +62,7 @@ class MealPlan extends StatelessWidget {
                       child: Text(
                         "1 egg tow egggggggggggggggggggggggggggggggggggggggggg",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: ut.textColor,
                           fontSize: Get.width * 0.04,
                         ),
                         softWrap: true,
@@ -79,10 +86,12 @@ class MealPlan extends StatelessWidget {
             //table
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
+              // ignore: sized_box_for_whitespace
               child: Container(
                 width: Get.width,
                 //color: Colors.orange,
                 // height: 200,
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   child: Table(
                     //defaultColumnWidth: FixedColumnWidth(50),

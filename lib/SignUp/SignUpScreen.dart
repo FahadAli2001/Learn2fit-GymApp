@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:learn2fit/SignIn/SignInScreen.dart';
+import 'package:learn2fit/Utils/utils.dart';
 
 import 'SignUpScreenController.dart';
 
@@ -13,6 +16,7 @@ class SignUpScreen extends StatelessWidget {
   SignUpScreenController sucontroller = Get.put(SignUpScreenController());
   final _formKey = GlobalKey<FormState>();
   var width = Get.width;
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -124,9 +128,10 @@ class SignUpScreen extends StatelessWidget {
                         validator: (String? val) {
                           if (val!.isEmpty) {
                             return "Enter password";
-                          } else if (val!.length < 8) {
+                          } else if (val.length < 8) {
                             return "Enterd mini 8 digit password";
                           }
+                          return null;
                         },
                         controller: sucontroller.password,
                         style: const TextStyle(height: 0.5),
@@ -228,7 +233,7 @@ class SignUpScreen extends StatelessWidget {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             sucontroller.SignUp();
-                            print("tap");
+                            log("tap");
                           }
                         }),
                   ),
@@ -247,12 +252,12 @@ class SignUpScreen extends StatelessWidget {
                           text: "Already Have An Account? ",
                           style: TextStyle(
                               fontSize: width * 0.04, color: Colors.grey),
-                          children: const <TextSpan>[
+                          children: <TextSpan>[
                             TextSpan(
                                 text: 'Sign In',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: ut.textColor,
                                 )),
                           ],
                         ),

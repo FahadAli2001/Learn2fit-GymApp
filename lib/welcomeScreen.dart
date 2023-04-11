@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:learn2fit/startingScreen.dart';
 
+import 'Utils/utils.dart';
+
 // ignore: camel_case_types
 class welcomeScreen extends StatelessWidget {
-  const welcomeScreen({Key? key}) : super(key: key);
+  welcomeScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +27,10 @@ class welcomeScreen extends StatelessWidget {
                   child: Container(
                 width: Get.width * 0.5,
                 height: Get.height * 0.3,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
                       image: AssetImage("assets/logo.png"), fit: BoxFit.fill),
-                  color: Colors.black,
+                  color: ut.textColor,
                   shape: BoxShape.circle,
                 ),
               ) /*(
@@ -44,7 +49,7 @@ class welcomeScreen extends StatelessWidget {
                         text: "Welcome to ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontSize: Get.width * 0.08),
                         children: [
                           TextSpan(
@@ -75,10 +80,10 @@ class welcomeScreen extends StatelessWidget {
                     Get.to(() => startingScreen());
                   },
                   color: Colors.green,
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       "Get Started",
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: ut.textColor),
                     ),
                   ),
                 ),

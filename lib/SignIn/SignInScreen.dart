@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../SignUp/SignUpScreen.dart';
+import '../Utils/utils.dart';
 import 'SignInController.dart';
 
 // ignore: must_be_immutable
@@ -15,6 +16,8 @@ class SignInScreen extends StatelessWidget {
   // ignore: non_constant_identifier_names
   var SocialAppIconSize = Get.height * 0.03;
 
+  Utils ut = Get.put(Utils());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +28,9 @@ class SignInScreen extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(
+            icon: Icon(
               CupertinoIcons.back,
-              color: Colors.black,
+              color: ut.black,
             )),
       ),
       body: SafeArea(

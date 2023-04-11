@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Get.to(() => const welcomeScreen());
+      Get.to(() => welcomeScreen());
     });
   }
 

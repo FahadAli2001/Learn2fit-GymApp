@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 import 'package:time_picker_spinner_pop_up/time_picker_spinner_pop_up.dart';
 
 import '../PhysicalInformation/PysicalInformation.dart';
+import '../Utils/utils.dart';
 
 // ignore: must_be_immutable
 class UserDataScreen extends StatelessWidget {
   UserDataScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   var religionValues = [
     'Muslim',
@@ -18,6 +21,15 @@ class UserDataScreen extends StatelessWidget {
     'Buddhist',
     'Other religion',
   ];
+
+  var professions = [
+    'Student',
+    'Office Going',
+    'House Wife',
+    'Other',
+  ];
+
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +41,11 @@ class UserDataScreen extends StatelessWidget {
     }
 
     var profession = 'Student'.obs;
-    var professions = [
-      'Student',
-      'Office Going',
-      'House Wife',
-      'Other',
-    ];
 
     void selectedprofession(String value) {
       profession.value = value;
     }
 
-    var textsize = Get.width * 0.045;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -114,7 +119,7 @@ class UserDataScreen extends StatelessWidget {
                       () => Text(
                         _age.value.toString(),
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: Get.width * 0.05),
                       ),
@@ -143,7 +148,7 @@ class UserDataScreen extends StatelessWidget {
                   Text(
                     "Date Of Birth",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: ut.black,
                         fontWeight: FontWeight.bold,
                         fontSize: textsize),
                   ),
@@ -166,7 +171,7 @@ class UserDataScreen extends StatelessWidget {
               child: Text(
                 "Religion",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: ut.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: textsize),
               ),
@@ -209,7 +214,7 @@ class UserDataScreen extends StatelessWidget {
               child: Text(
                 "Profession",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: ut.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: textsize),
               ),

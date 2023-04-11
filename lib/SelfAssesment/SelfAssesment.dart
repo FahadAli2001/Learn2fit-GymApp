@@ -92,7 +92,7 @@ class SelfAssement extends StatelessWidget {
                 ),
               ),
               (MealAssesment.value == true)
-                  ? const MealAssesmentScreen()
+                  ? MealAssesmentScreen()
                   : const TrainingAssesmentScreen()
             ],
           ),

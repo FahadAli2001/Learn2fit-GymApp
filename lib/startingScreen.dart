@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,11 +7,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'Dashboard/Dashboard.dart';
 import 'Plans/PlansScreen.dart';
 import 'SignIn/SignInController.dart';
+import 'Utils/utils.dart';
 
-// ignore: camel_case_types
+// ignore: camel_case_types, must_be_immutable
 class startingScreen extends StatelessWidget {
   startingScreen({Key? key}) : super(key: key);
   signInController signcon = Get.put(signInController());
+
+  Utils ut = Get.put(Utils());
 
   final PageController _pageController = PageController();
 
@@ -77,7 +78,7 @@ class startingScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: Get.width * 0.05,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                      color: ut.textColor),
                                 ),
                               ),
                               Padding(
@@ -124,7 +125,7 @@ class startingScreen extends StatelessWidget {
                       child: Center(
                         child: Icon(
                           CupertinoIcons.forward,
-                          color: Colors.black,
+                          color: ut.black,
                           size: Get.width * 0.09,
                         ),
                       ),

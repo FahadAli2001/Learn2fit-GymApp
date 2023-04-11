@@ -3,8 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Utils/utils.dart';
+
+// ignore: must_be_immutable
 class ProgresScreen extends StatelessWidget {
   ProgresScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   var weightlist = [
     '1',
@@ -20,6 +25,7 @@ class ProgresScreen extends StatelessWidget {
       weight.value = value;
     }
 
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -42,7 +48,7 @@ class ProgresScreen extends StatelessWidget {
                 child: Text(
                   "Body Measurement",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: ut.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: Get.width * 0.045,
                   ),
@@ -64,10 +70,11 @@ class ProgresScreen extends StatelessWidget {
                         Text(
                           "Body Weight",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: Get.width * 0.04),
                         ),
+                        // ignore: sized_box_for_whitespace
                         Obx(() => Container(
                               width: 100,
                               child: Padding(
@@ -107,6 +114,7 @@ class ProgresScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: Get.width * 0.04),
                         ),
+                        // ignore: sized_box_for_whitespace
                         Obx(() => Container(
                               width: 100,
                               child: Padding(
@@ -142,10 +150,11 @@ class ProgresScreen extends StatelessWidget {
                         Text(
                           "Arm Size",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: Get.width * 0.04),
                         ),
+                        // ignore: sized_box_for_whitespace
                         Obx(() => Container(
                               width: 100,
                               child: Padding(
@@ -179,7 +188,9 @@ class ProgresScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: CupertinoButton(
-                    color: Colors.green, child: Text("Done"), onPressed: () {}),
+                    color: Colors.green,
+                    child: const Text("Done"),
+                    onPressed: () {}),
               ),
             )
           ],

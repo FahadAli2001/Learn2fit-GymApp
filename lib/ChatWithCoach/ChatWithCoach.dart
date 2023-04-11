@@ -17,8 +17,8 @@ class ChatWithCoach extends StatelessWidget {
         ),
         onPressed: () {
           Get.defaultDialog(
-              title: "Hey Listen",
-              middleText: "First Purchased your package",
+              title: "Hey!!",
+              middleText: "Purchased your package",
               confirm: TextButton(
                 onPressed: () {
                   Get.back();
