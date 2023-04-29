@@ -1,7 +1,6 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class BreakFastScreen extends StatelessWidget {
   const BreakFastScreen({Key? key}) : super(key: key);
@@ -15,7 +14,6 @@ class BreakFastScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
-
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: DatePicker(
@@ -33,58 +31,56 @@ class BreakFastScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 5),
               child: Align(
                 alignment: Alignment.topLeft,
-                child: Text("Targets",
+                child: Text(
+                  "Targets",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: Get.width * 0.05
-                  ),),
+                      fontSize: Get.width * 0.05),
+                ),
               ),
             ),
 
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
-
                 //color: Colors.orange,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey
-                  )
-                ),
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.grey)),
                 width: Get.width,
                 child: Padding(
                   padding: const EdgeInsets.all(5),
                   child: Row(
-                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text("Milk",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: textsize
-                      ),),
+                      Text(
+                        "Milk",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: textsize),
+                      ),
                       Obx(
-                            ()=> Radio(
-                              value: "Yes",
-                              groupValue: isEat.value,
-                              onChanged: (val){
-                                isEat.value = val.toString();
-                              },
-                            ),
+                        () => Radio(
+                          value: "Yes",
+                          groupValue: isEat.value,
+                          onChanged: (val) {
+                            isEat.value = val.toString();
+                          },
+                        ),
                       ),
                       Text("Yes"),
 
                       //----------
                       Obx(
-                            ()=> Radio(
-                              value: "No",
-                              groupValue: isEat.value,
-                              onChanged: (val){
-                                isEat.value = val.toString();
-                                //print(val.toString()+""+payment.value);
-                              },
-                            ),
+                        () => Radio(
+                          value: "No",
+                          groupValue: isEat.value,
+                          onChanged: (val) {
+                            isEat.value = val.toString();
+                            //print(val.toString()+""+payment.value);
+                          },
+                        ),
                       ),
                       //
                       Text("No")
@@ -101,43 +97,41 @@ class BreakFastScreen extends StatelessWidget {
 
                 decoration: BoxDecoration(
                     //color: Colors.orange,
-                    border: Border.all(
-                        color: Colors.grey
-                    )
-                ),
+                    border: Border.all(color: Colors.grey)),
                 width: Get.width,
                 child: Padding(
                   padding: const EdgeInsets.all(5),
                   child: Row(
-                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text("Daal Chawal",
+                      Text(
+                        "Daal Chawal",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: textsize
-                        ),),
+                            fontSize: textsize),
+                      ),
                       Obx(
-                            ()=> Radio(
-                              value: "Yes",
-                              groupValue: isEat.value,
-                              onChanged: (val){
-                                isEat.value = val.toString();
-                              },
-                            ),
+                        () => Radio(
+                          value: "Yes",
+                          groupValue: isEat.value,
+                          onChanged: (val) {
+                            isEat.value = val.toString();
+                          },
+                        ),
                       ),
                       //
                       Text("Yes"),
                       //----------
                       Obx(
-                            ()=> Radio(
-                              value: "No",
-                              groupValue: isEat.value,
-                              onChanged: (val){
-                                isEat.value = val.toString();
-                                //print(val.toString()+""+payment.value);
-                              },
-                            ),
+                        () => Radio(
+                          value: "No",
+                          groupValue: isEat.value,
+                          onChanged: (val) {
+                            isEat.value = val.toString();
+                            //print(val.toString()+""+payment.value);
+                          },
+                        ),
                       ),
                       //
                       Text("No"),

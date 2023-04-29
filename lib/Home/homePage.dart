@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carousel_slider/carousel_options.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +19,7 @@ class homePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: AutoSizeText(
+          title: const AutoSizeText(
             "Learn 2 fitt",
             style: TextStyle(
               color: Colors.green,
@@ -61,29 +61,26 @@ class homePage extends StatelessWidget {
                 //
                 CarouselSlider.builder(
                   itemCount: imagesUrl.length,
-                  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+                  itemBuilder: (BuildContext context, int itemIndex,
+                          int pageViewIndex) =>
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: Get.width,
-                          height: Get.height * 0.4,
-                          decoration: BoxDecoration(
-                           // color: Colors.orange,
-                              image: DecorationImage(
-                                  image: NetworkImage(imagesUrl[itemIndex]),
-                                  fit: BoxFit.fill
-                              )
-                          ),
-
-                        ),
-                      ), options:  CarouselOptions(
-                    autoPlay: true,
-                   // enlargeCenterPage: true,
-                    //height: Get.height * 0.1,
-                    //aspectRatio: 16/9,
-                    onPageChanged: (index, reason) {
-
-                    }),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: Get.width,
+                      height: Get.height * 0.4,
+                      decoration: BoxDecoration(
+                          // color: Colors.orange,
+                          image: DecorationImage(
+                              image: NetworkImage(imagesUrl[itemIndex]),
+                              fit: BoxFit.fill)),
+                    ),
+                  ),
+                  options: CarouselOptions(
+                      autoPlay: true,
+                      // enlargeCenterPage: true,
+                      //height: Get.height * 0.1,
+                      //aspectRatio: 16/9,
+                      onPageChanged: (index, reason) {}),
                 ),
                 //
                 Padding(
@@ -142,7 +139,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -159,7 +156,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -175,7 +172,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -191,7 +188,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -207,7 +204,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -223,7 +220,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,
@@ -239,7 +236,7 @@ class homePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.check,
                       color: Colors.green,
                       size: 30,

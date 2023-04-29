@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../SignIn/SignInController.dart';
 
@@ -13,65 +12,76 @@ class ProfileSettingScreen extends StatelessWidget {
     signInController signController = Get.put(signInController());
     Color btncolor = Colors.black;
     var btnwidth = Get.width * 0.04;
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       appBar: AppBar(
-
-        leading: IconButton(onPressed: (){
-          Get.back();
-        }, icon: Icon(CupertinoIcons.back,color: Colors.black,)),
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
+              CupertinoIcons.back,
+              color: Colors.black,
+            )),
         elevation: 0,
         backgroundColor: Colors.white70,
-        title: Text("Settings",
-        style: TextStyle(
-          color: Colors.black
-        ),),
+        title: const Text(
+          "Settings",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
       ),
-
       bottomNavigationBar: Container(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
           child: CupertinoButton(
             color: Colors.green,
-            onPressed: (){
+            onPressed: () {
               signController.logout();
             },
-            child: Text("Log-Out",
+            child: const Text(
+              "Log-Out",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 // fontSize: Get.width * 0.06
-              ),),
+              ),
+            ),
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
+                child: SizedBox(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Personal Info",
+                      Text(
+                        "Personal Info",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                      color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -80,22 +90,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Contact Info",
+                      Text(
+                        "Contact Info",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -104,22 +119,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Social Info",
+                      Text(
+                        "Social Info",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -128,22 +148,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Goals and Preferences",
+                      Text(
+                        "Goals and Preferences",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -152,22 +177,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Password Reset",
+                      Text(
+                        "Password Reset",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -176,22 +206,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Privacy Controls",
+                      Text(
+                        "Privacy Controls",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
               //
               Padding(
@@ -200,22 +235,27 @@ class ProfileSettingScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Account Setting",
+                      Text(
+                        "Account Setting",
                         style: TextStyle(
                             color: btncolor,
                             fontWeight: FontWeight.bold,
-                            fontSize: btnwidth
-                        ),),
+                            fontSize: btnwidth),
+                      ),
                       //
-                      Icon(CupertinoIcons.forward,
-                        color: Colors.black,)
+                      const Icon(
+                        CupertinoIcons.forward,
+                        color: Colors.black,
+                      )
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Divider(color: Colors.green,),
+              const Padding(
+                padding: EdgeInsets.all(4),
+                child: Divider(
+                  color: Colors.green,
+                ),
               ),
             ],
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../Insight/InsightScreen.dart';
 import '../Profile/ProfileSettingScreen.dart';
@@ -12,41 +11,41 @@ class PlansScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
           centerTitle: true,
-          title: Text("Learn2Fit",style: TextStyle(
-            color: Colors.green
-          ),),
+          title: const Text(
+            "Learn2Fit",
+            style: TextStyle(color: Colors.green),
+          ),
           automaticallyImplyLeading: false,
           actions: [
-            IconButton(onPressed: (){
-              Get.to(ProfileSettingScreen());
-            },
-                icon: Icon(Icons.person),
-            color: Colors.green,)
+            IconButton(
+              onPressed: () {
+                Get.to(const ProfileSettingScreen());
+              },
+              icon: const Icon(Icons.person),
+              color: Colors.green,
+            )
           ],
           backgroundColor: Colors.white70,
-          bottom: TabBar(
+          bottom: const TabBar(
             labelColor: Colors.green,
             indicatorColor: Colors.green,
             tabs: [
-              Tab( text: "Plans",),
+              Tab(
+                text: "Plans",
+              ),
               Tab(text: "Self Assesment"),
               Tab(text: "Insight"),
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            PlansDetailScreen(),
-            SelfAssement(),
-            InsightScreen()
-          ],
+        body: const TabBarView(
+          children: [PlansDetailScreen(), SelfAssement(), InsightScreen()],
         ),
       ),
     );

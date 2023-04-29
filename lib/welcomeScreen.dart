@@ -12,27 +12,27 @@ class welcomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Column(
             //crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
-                child:Container(
-                  width: Get.width * 0.5,
-                  height: Get.height * 0.3,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image:
-                    AssetImage("assets/logo.png"),fit: BoxFit.fill),
-                    color: Colors.black,
-                    shape: BoxShape.circle,
-                  ),
-                ) /*(
+                  child: Container(
+                width: Get.width * 0.5,
+                height: Get.height * 0.3,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/logo.png"), fit: BoxFit.fill),
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                ),
+              ) /*(
                   backgroundColor: Colors.black,
                   radius: 100,
                   backgroundImage: AssetImage("assets/logo.png"),
                 ),*/
-              ),
+                  ),
               //--------
               //SizedBox(height: 30,),
               Padding(
@@ -40,46 +40,45 @@ class welcomeScreen extends StatelessWidget {
                 child: Center(
                   child: RichText(
                     text: TextSpan(
-                      text: "Welcome to ",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: Get.width * 0.08
-                      ),
-                      children: [
-                        TextSpan(
-                          text: "Learn2fitt",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
-                              fontSize: Get.width * 0.08
-                          )
-                        )
-                      ]
-                    ),
+                        text: "Welcome to ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: Get.width * 0.08),
+                        children: [
+                          TextSpan(
+                              text: "Learn2fitt",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green,
+                                  fontSize: Get.width * 0.08))
+                        ]),
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
-              child: Text("Welcome to our home! Glad to have you back! Your visits mean a lot to us, and we want you to know that you bring joy to our family. Greetings with joy! We are delighted to have you, and we hope you will have a great stay with us!",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: Get.width * 0.04
-              ),),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                child: Text(
+                  "Welcome to our home! Glad to have you back! Your visits mean a lot to us, and we want you to know that you bring joy to our family. Greetings with joy! We are delighted to have you, and we hope you will have a great stay with us!",
+                  style:
+                      TextStyle(color: Colors.grey, fontSize: Get.width * 0.04),
+                ),
               ),
               //
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50,horizontal: 15),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 50, horizontal: 15),
                 child: CupertinoButton(
-                  onPressed: (){
-                    Get.to(startingScreen());
+                  onPressed: () {
+                    Get.to(const startingScreen());
                   },
                   color: Colors.green,
-                  child: Center(
-                    child: Text("Get Started",
-                    style: TextStyle(
-                      color: Colors.black
-                    ),),
+                  child: const Center(
+                    child: Text(
+                      "Get Started",
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               )

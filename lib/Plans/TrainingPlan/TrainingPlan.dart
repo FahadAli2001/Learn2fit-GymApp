@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../Exercises/ExerciseScreen.dart';
-
 
 class TrainingPlan extends StatelessWidget {
   const TrainingPlan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Color boxcolor = Colors.white;
     var currentindex = 0.obs;
     return Container(
       child: Padding(
@@ -20,50 +17,46 @@ class TrainingPlan extends StatelessWidget {
             Container(
               width: Get.width,
               height: Get.height * 0.2,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/logo.JPG"),
-                fit: BoxFit.fill)
-              ),
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/logo.JPG"), fit: BoxFit.fill)),
             ),
             //
-            for(var i = 1; i <= 2 ; i++)...[
-                  Obx(()=>
-                     Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: GestureDetector(
-                      onTap: (){
-                        Get.to(ExerciseScreen(),
-                        arguments: {"dayvalue":i.toString()});
-                        currentindex.value = i;
-                      },
-                      child: Container(
+            for (var i = 1; i <= 2; i++) ...[
+              Obx(
+                () => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(const ExerciseScreen(),
+                          arguments: {"dayvalue": i.toString()});
+                      currentindex.value = i;
+                    },
+                    child: Container(
                       width: Get.width,
                       height: Get.height * 0.05,
                       decoration: BoxDecoration(
-                        color: (currentindex.value == i )?Colors.green:null,
-                        border: Border.all(
-                          color: Colors.grey
-                        )
-                      ),
+                          color:
+                              (currentindex.value == i) ? Colors.green : null,
+                          border: Border.all(color: Colors.grey)),
                       child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text("Day ${i} "),
-                      ),
-                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Text("0% "),
-                      ),
-                      ],
-                      ),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Text("Day ${i} "),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            child: Text("0% "),
+                          ),
+                        ],
                       ),
                     ),
-                    ),
-                  )
+                  ),
+                ),
+              )
             ]
-
           ],
         ),
       ),
