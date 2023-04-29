@@ -1,20 +1,25 @@
 import 'package:auto_size_text/auto_size_text.dart';
-
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../Utils/utils.dart';
+
 class homePage extends StatelessWidget {
-  const homePage({super.key});
+  homePage({super.key});
+
+  Utils ut = Get.put(Utils());
+
+  List<String> imagesUrl = [
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-2.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List<String> imagesUrl = [
-      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM.jpeg",
-      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-2.jpeg",
-      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
-      "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
-    ];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -46,12 +51,12 @@ class homePage extends StatelessWidget {
                             fontSize: Get.width * 0.06,
                             color: Colors.green,
                             fontWeight: FontWeight.bold),
-                        children: const <TextSpan>[
+                        children: <TextSpan>[
                           TextSpan(
                               text: 'is very easy if you have the knowledge',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: ut.textColor,
                               )),
                         ],
                       ),
@@ -93,14 +98,14 @@ class homePage extends StatelessWidget {
                             'We have seen many people doing Dieting or going to gym or doing exercises or excessive walking for months ',
                         style: TextStyle(
                           fontSize: Get.width * 0.045,
-                          color: Colors.black,
+                          color: ut.textColor,
                         ),
-                        children: const <TextSpan>[
+                        children: <TextSpan>[
                           TextSpan(
                               text: 'but no significant result came',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: ut.textColor,
                               )),
                         ],
                       ),
@@ -128,7 +133,7 @@ class homePage extends StatelessWidget {
                     child: Text(
                       "The Complete Fitness platform for your weight loss journey",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ut.textColor,
                           fontWeight: FontWeight.bold,
                           fontSize: Get.width * 0.045),
                     ),
@@ -147,7 +152,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Basic education of how our body gain weight and loss weight (The most important thing that we miss)",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -164,7 +169,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Science -backed Diet Plan (with multi options) as per your body requirement (with measurement and photos for your ease)",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -180,7 +185,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Personized Home Exercises with detail guidance in video + Coach will give you all guidance [You are not required to go to gym, unless you wish] ",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -196,7 +201,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Daily monitoring of your Diet intake",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -212,7 +217,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Daily monitoring for your exercises ",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -228,7 +233,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Weekly Detail Progress Monitoring and Coach Session over call based on your convenient call",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -244,7 +249,7 @@ class homePage extends StatelessWidget {
                     title: Text(
                       "Nutrition Facts for common foods",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.035),
+                          color: ut.textColor, fontSize: Get.width * 0.035),
                     ),
                   ),
                 ),
@@ -266,7 +271,7 @@ class homePage extends StatelessWidget {
                     child: Text(
                       "Basic Diet Plan is free [you can access it on account creation]  OUR AIM IS YOUR LIFETIME FITNESS AND NUTRITION. EDUCATION Education for Nutrition. Education for Fitness. Your coach will increase your motivation and make you on track ALWAYS Coach time base on your availability",
                       style: TextStyle(
-                          color: Colors.black, fontSize: Get.width * 0.037),
+                          color: ut.textColor, fontSize: Get.width * 0.037),
                     ),
                   ),
                 ),
@@ -279,12 +284,13 @@ class homePage extends StatelessWidget {
                       "The program is very useful for",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: ut.textColor,
                           fontSize: Get.width * 0.045),
                     ),
                   ),
                 ),
                 //
+                // ignore: sized_box_for_whitespace
                 Container(
                   width: Get.width * 0.6,
                   height: Get.height * 0.28,
@@ -306,7 +312,7 @@ class homePage extends StatelessWidget {
                         "Office going professionals ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontSize: Get.width * 0.04),
                       ),
                       //
@@ -317,7 +323,7 @@ class homePage extends StatelessWidget {
                           child: Text(
                             "Office going male and female who have daily routine for Office and want to decrease weight while managing office chores and outside dinning",
                             style: TextStyle(
-                                color: Colors.black,
+                                color: ut.textColor,
                                 fontSize: Get.width * 0.03),
                           ),
                         ),
@@ -326,6 +332,7 @@ class homePage extends StatelessWidget {
                   ),
                 ),
                 //
+                // ignore: sized_box_for_whitespace
                 Container(
                   width: Get.width * 0.6,
                   height: Get.height * 0.25,
@@ -358,7 +365,7 @@ class homePage extends StatelessWidget {
                           child: Text(
                             "Those who are mostly in house and want to reduce weight while home chores and occasional outside dining ",
                             style: TextStyle(
-                                color: Colors.black,
+                                color: ut.textColor,
                                 fontSize: Get.width * 0.03),
                           ),
                         ),
@@ -367,6 +374,7 @@ class homePage extends StatelessWidget {
                   ),
                 ),
                 //
+                // ignore: sized_box_for_whitespace
                 Container(
                   width: Get.width * 0.6,
                   height: Get.height * 0.25,
@@ -388,7 +396,7 @@ class homePage extends StatelessWidget {
                         "Students",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontSize: Get.width * 0.04),
                       ),
                       //
@@ -399,7 +407,7 @@ class homePage extends StatelessWidget {
                           child: Text(
                             "College and University going students who aim to reduce their weight while managing their education life balance",
                             style: TextStyle(
-                                color: Colors.black,
+                                color: ut.textColor,
                                 fontSize: Get.width * 0.03),
                           ),
                         ),

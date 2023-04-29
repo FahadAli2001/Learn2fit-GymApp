@@ -1,22 +1,25 @@
-import 'package:email_validator/email_validator.dart';
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:learn2fit/SignIn/SignInScreen.dart';
+import 'package:learn2fit/Utils/utils.dart';
 
 import 'SignUpScreenController.dart';
 
+// ignore: must_be_immutable
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  SignUpScreen({Key? key}) : super(key: key);
+
+  SignUpScreenController sucontroller = Get.put(SignUpScreenController());
+  final _formKey = GlobalKey<FormState>();
+  var width = Get.width;
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
-    SignUpScreenController sucontroller = Get.put(SignUpScreenController());
-    final _formKey = GlobalKey<FormState>();
-    var width = Get.width;
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -126,7 +129,11 @@ class SignUpScreen extends StatelessWidget {
                           if (val!.isEmpty) {
                             return "Enter password";
                           } else if (val.length < 8) {
+<<<<<<< HEAD
                             return "Enter mini 8 digit password";
+=======
+                            return "Enterd mini 8 digit password";
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                           }
                           return null;
                         },
@@ -230,7 +237,7 @@ class SignUpScreen extends StatelessWidget {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             sucontroller.SignUp();
-                            print("tap");
+                            log("tap");
                           }
                         }),
                   ),
@@ -242,19 +249,31 @@ class SignUpScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 50),
                     child: InkWell(
                       onTap: () {
+<<<<<<< HEAD
                         Get.to(const SignInScreen());
+=======
+                        Get.to(() => SignInScreen());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                       },
                       child: RichText(
                         text: TextSpan(
                           text: "Already Have An Account? ",
                           style: TextStyle(
                               fontSize: width * 0.04, color: Colors.grey),
+<<<<<<< HEAD
                           children: const <TextSpan>[
+=======
+                          children: <TextSpan>[
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                             TextSpan(
                                 text: 'Sign In',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
+<<<<<<< HEAD
                                   color: Colors.black,
+=======
+                                  color: ut.textColor,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                                 )),
                           ],
                         ),

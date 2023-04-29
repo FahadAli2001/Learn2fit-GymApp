@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +9,12 @@ class TrainingAssesmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return SizedBox(
+=======
+    // ignore: avoid_unnecessary_containers
+    return Container(
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -55,7 +61,11 @@ class TrainingAssesmentScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: GestureDetector(
                 onTap: () {
+<<<<<<< HEAD
                   Get.to(const trainAssesment());
+=======
+                  Get.to(trainAssesment());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                 },
                 child: SizedBox(
                   width: Get.width,
@@ -79,11 +89,15 @@ class TrainingAssesmentScreen extends StatelessWidget {
                       //
                       Expanded(
                         child: Container(
+<<<<<<< HEAD
                           decoration: const BoxDecoration(
                               color: Colors.green,
                               borderRadius: BorderRadius.only(
                                   topRight: Radius.circular(20),
                                   bottomRight: Radius.circular(20))),
+=======
+                          // ignore: sort_child_properties_last
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                           child: const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
@@ -94,6 +108,11 @@ class TrainingAssesmentScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             )),
                           ),
+                          decoration: const BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20))),
                         ),
                       )
                     ],

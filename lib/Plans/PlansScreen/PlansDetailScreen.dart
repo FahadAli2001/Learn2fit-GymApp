@@ -10,7 +10,10 @@ class PlansDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     // ignore: non_constant_identifier_names
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     var Mealplan = true.obs;
     // ignore: non_constant_identifier_names
     var Trainingplan = false.obs;
@@ -132,11 +135,19 @@ class PlansDetailScreen extends StatelessWidget {
                 ),
                 //
                 if (Mealplan.value == true) ...[
+<<<<<<< HEAD
                   const MealPlan()
                 ] else if (Trainingplan.value == true) ...[
                   const TrainingPlan()
                 ] else if (progress.value == true) ...[
                   const ProgresScreen()
+=======
+                  MealPlan()
+                ] else if (Trainingplan.value == true) ...[
+                  TrainingPlan()
+                ] else if (progress.value == true) ...[
+                  ProgresScreen()
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                 ]
               ],
             ),

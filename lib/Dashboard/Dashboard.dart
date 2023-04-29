@@ -10,6 +10,7 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 
 import '../ChatWithCoach/ChatWithCoach.dart';
+import '../ContactUs/ContactUsScreen.dart';
 import '../Profile/ProfileSettingScreen.dart';
 import '../transformPackages/transformPackages.dart';
 
@@ -23,6 +24,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _controller = PageController();
 
     return Scaffold(
@@ -31,8 +33,7 @@ class _DashboardState extends State<Dashboard> {
           children: <Widget>[
             homePage(),
             transformPackages(),
-            ChatWithCoach(),
-
+            const ContactUsScreen(),
           ],
         ),
         extendBody: true,
@@ -41,14 +42,13 @@ class _DashboardState extends State<Dashboard> {
           controller: _controller,
           flat: true,
           // useActiveColorByDefault: false,
-          items: [
+          items: const [
             RollingBottomBarItem(Icons.home,
                 label: 'Home', activeColor: Colors.green),
             RollingBottomBarItem(Icons.compare_arrows_outlined,
                 label: 'Transform', activeColor: Colors.green),
-            RollingBottomBarItem(Icons.chat,
-                label: 'Chat', activeColor: Colors.green),
-
+            RollingBottomBarItem(Icons.contact_support,
+                label: 'Contact-Us', activeColor: Colors.green),
           ],
           enableIconRotation: true,
           onTap: (index) {

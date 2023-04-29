@@ -3,17 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../ClassTimimgs/ClassTimings.dart';
+import '../Utils/utils.dart';
 
+// ignore: must_be_immutable
 class PysicalInformation extends StatelessWidget {
-  const PysicalInformation({Key? key}) : super(key: key);
+  PysicalInformation({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
+
+  var height = 1.obs;
+  var weight = 1.obs;
+  var targetWeight = 1.obs;
+  var waistSize = 10.obs;
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     var height = 1.obs;
     var weight = 1.obs;
     var targetWeight = 1.obs;
     var waistSize = 10.obs;
     var textsize = Get.width * 0.045;
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -25,13 +38,18 @@ class PysicalInformation extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      // ignore: avoid_unnecessary_containers
       bottomNavigationBar: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
           child: CupertinoButton(
             color: Colors.green,
             onPressed: () {
+<<<<<<< HEAD
               Get.to(const ClassTimings());
+=======
+              Get.to(() => ClassTimings());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
             },
             child: const Text(
               "Next",
@@ -57,7 +75,7 @@ class PysicalInformation extends StatelessWidget {
                       Text(
                         "Height",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -66,7 +84,7 @@ class PysicalInformation extends StatelessWidget {
                         () => Text(
                           "${height.value} cm",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: textsize),
                         ),
@@ -76,6 +94,12 @@ class PysicalInformation extends StatelessWidget {
               //
               Obx(
                 () => Slider(
+<<<<<<< HEAD
+=======
+                  thumbColor: Colors.green,
+                  activeColor: Colors.green,
+                  inactiveColor: Colors.green,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                   value: height.value.toDouble(),
                   min: 1,
                   max: 310,
@@ -95,7 +119,7 @@ class PysicalInformation extends StatelessWidget {
                       Text(
                         "Weight",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -104,7 +128,7 @@ class PysicalInformation extends StatelessWidget {
                         () => Text(
                           "${weight.value} kg",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: textsize),
                         ),
@@ -133,7 +157,7 @@ class PysicalInformation extends StatelessWidget {
                       Text(
                         "Target Weight",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -142,7 +166,7 @@ class PysicalInformation extends StatelessWidget {
                         () => Text(
                           "${targetWeight.value} kg",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: textsize),
                         ),
@@ -171,7 +195,7 @@ class PysicalInformation extends StatelessWidget {
                       Text(
                         "Waist Size",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -180,7 +204,7 @@ class PysicalInformation extends StatelessWidget {
                         () => Text(
                           "${waistSize.value} cm",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ut.textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: textsize),
                         ),

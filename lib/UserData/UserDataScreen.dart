@@ -5,40 +5,60 @@ import 'package:get/get.dart';
 import 'package:time_picker_spinner_pop_up/time_picker_spinner_pop_up.dart';
 
 import '../PhysicalInformation/PysicalInformation.dart';
+import '../Utils/utils.dart';
 
+// ignore: must_be_immutable
 class UserDataScreen extends StatelessWidget {
-  const UserDataScreen({Key? key}) : super(key: key);
+  UserDataScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
+
+  var religionValues = [
+    'Muslim',
+    'Christian',
+    'Non-religious',
+    'Hindu',
+    'Buddhist',
+    'Other religion',
+  ];
+
+  var professions = [
+    'Student',
+    'Office Going',
+    'House Wife',
+    'Other',
+  ];
+
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
     var _age = 1.obs;
     var religion = 'Muslim'.obs;
-    var religionValues = [
-      'Muslim',
-      'Christian',
-      'Non-religious',
-      'Hindu',
-      'Buddhist',
-      'Other religion',
-    ];
 
     void selectedReligion(String value) {
       religion.value = value;
     }
 
     var profession = 'Student'.obs;
+<<<<<<< HEAD
     var professions = [
       'Student',
       'Office Going',
       'House Wife',
       'Other',
     ];
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
 
     void selectedprofession(String value) {
       profession.value = value;
     }
 
+<<<<<<< HEAD
     var textsize = Get.width * 0.045;
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -56,7 +76,11 @@ class UserDataScreen extends StatelessWidget {
           child: CupertinoButton(
             color: Colors.green,
             onPressed: () {
+<<<<<<< HEAD
               Get.to(const PysicalInformation());
+=======
+              Get.to(PysicalInformation());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
             },
             child: const Text(
               "Next",
@@ -112,7 +136,11 @@ class UserDataScreen extends StatelessWidget {
                       () => Text(
                         _age.value.toString(),
                         style: TextStyle(
+<<<<<<< HEAD
                             color: Colors.black,
+=======
+                            color: ut.textColor,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                             fontWeight: FontWeight.bold,
                             fontSize: Get.width * 0.05),
                       ),
@@ -141,7 +169,7 @@ class UserDataScreen extends StatelessWidget {
                   Text(
                     "Date Of Birth",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: ut.black,
                         fontWeight: FontWeight.bold,
                         fontSize: textsize),
                   ),
@@ -164,7 +192,7 @@ class UserDataScreen extends StatelessWidget {
               child: Text(
                 "Religion",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: ut.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: textsize),
               ),
@@ -207,7 +235,7 @@ class UserDataScreen extends StatelessWidget {
               child: Text(
                 "Profession",
                 style: TextStyle(
-                    color: Colors.black,
+                    color: ut.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: textsize),
               ),

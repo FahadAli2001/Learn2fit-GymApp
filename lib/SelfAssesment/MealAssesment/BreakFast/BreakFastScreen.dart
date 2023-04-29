@@ -1,14 +1,25 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+<<<<<<< HEAD
+=======
+
+import '../../../Utils/utils.dart';
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
 
 class BreakFastScreen extends StatelessWidget {
-  const BreakFastScreen({Key? key}) : super(key: key);
+  BreakFastScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
     var isEat = "eat".obs;
-    var textsize = Get.width * 0.045;
+
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -34,7 +45,7 @@ class BreakFastScreen extends StatelessWidget {
                 child: Text(
                   "Targets",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: ut.textColor,
                       fontWeight: FontWeight.bold,
                       fontSize: Get.width * 0.05),
                 ),
@@ -56,6 +67,7 @@ class BreakFastScreen extends StatelessWidget {
                       Text(
                         "Milk",
                         style: TextStyle(
+<<<<<<< HEAD
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
@@ -68,8 +80,22 @@ class BreakFastScreen extends StatelessWidget {
                             isEat.value = val.toString();
                           },
                         ),
+=======
+                            color: ut.textColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: textsize),
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                       ),
-                      Text("Yes"),
+                      Obx(
+                        () => Radio(
+                          value: "Yes",
+                          groupValue: isEat.value,
+                          onChanged: (val) {
+                            isEat.value = val.toString();
+                          },
+                        ),
+                      ),
+                      const Text("Yes"),
 
                       //----------
                       Obx(
@@ -83,7 +109,7 @@ class BreakFastScreen extends StatelessWidget {
                         ),
                       ),
                       //
-                      Text("No")
+                      const Text("No")
                     ],
                   ),
                 ),
@@ -107,7 +133,7 @@ class BreakFastScreen extends StatelessWidget {
                       Text(
                         "Daal Chawal",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ut.textColor,
                             fontWeight: FontWeight.bold,
                             fontSize: textsize),
                       ),
@@ -121,7 +147,7 @@ class BreakFastScreen extends StatelessWidget {
                         ),
                       ),
                       //
-                      Text("Yes"),
+                      const Text("Yes"),
                       //----------
                       Obx(
                         () => Radio(
@@ -134,7 +160,7 @@ class BreakFastScreen extends StatelessWidget {
                         ),
                       ),
                       //
-                      Text("No"),
+                      const Text("No"),
                     ],
                   ),
                 ),

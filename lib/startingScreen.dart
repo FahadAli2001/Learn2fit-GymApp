@@ -7,12 +7,30 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'Dashboard/Dashboard.dart';
 import 'Plans/PlansScreen.dart';
 import 'SignIn/SignInController.dart';
+<<<<<<< HEAD
+=======
+import 'Utils/utils.dart';
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
 
+// ignore: camel_case_types, must_be_immutable
 class startingScreen extends StatelessWidget {
-  const startingScreen({Key? key}) : super(key: key);
+  startingScreen({Key? key}) : super(key: key);
+  signInController signcon = Get.put(signInController());
+
+  Utils ut = Get.put(Utils());
+
+  final PageController _pageController = PageController();
+
+  List<String> imagesUrl = [
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-2.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
+    "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
+  ];
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     signInController signcon = Get.put(signInController());
 
     final PageController _pageController = PageController();
@@ -23,6 +41,8 @@ class startingScreen extends StatelessWidget {
       "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.54-PM.jpeg",
       "https://www.learn2fitt.com/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-19-at-11.22.43-PM-1.jpeg"
     ];
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -74,7 +94,11 @@ class startingScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: Get.width * 0.05,
                                       fontWeight: FontWeight.bold,
+<<<<<<< HEAD
                                       color: Colors.black),
+=======
+                                      color: ut.textColor),
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                                 ),
                               ),
                               Padding(
@@ -110,11 +134,18 @@ class startingScreen extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () async {
                       final sp = await SharedPreferences.getInstance();
+<<<<<<< HEAD
                       print(sp.getString("email"));
                       print(sp.getString("password"));
                       (sp.getString("email") != null)
                           ? Get.to(const PlansScreen())
                           : Get.to(const Dashboard());
+=======
+
+                      (sp.getString("email") != null)
+                          ? Get.to(() => const PlansScreen())
+                          : Get.to(() => const Dashboard());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                     },
                     child: CircleAvatar(
                       radius: 30,
@@ -122,7 +153,11 @@ class startingScreen extends StatelessWidget {
                       child: Center(
                         child: Icon(
                           CupertinoIcons.forward,
+<<<<<<< HEAD
                           color: Colors.black,
+=======
+                          color: ut.black,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                           size: Get.width * 0.09,
                         ),
                       ),

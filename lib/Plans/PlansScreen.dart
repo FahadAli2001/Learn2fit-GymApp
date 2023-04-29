@@ -25,7 +25,11 @@ class PlansScreen extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
+<<<<<<< HEAD
                 Get.to(const ProfileSettingScreen());
+=======
+                Get.to(() => ProfileSettingScreen());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
               },
               icon: const Icon(Icons.person),
               color: Colors.green,

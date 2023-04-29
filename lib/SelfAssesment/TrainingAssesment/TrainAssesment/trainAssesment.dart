@@ -1,15 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
+// ignore: camel_case_types, must_be_immutable
 class trainAssesment extends StatelessWidget {
-  const trainAssesment({Key? key}) : super(key: key);
+  trainAssesment({Key? key}) : super(key: key);
+
+  var textsize = Get.width * 0.045;
 
   @override
   Widget build(BuildContext context) {
     var isEat = "eat".obs;
+<<<<<<< HEAD
     var textsize = Get.width * 0.045;
+=======
+
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(

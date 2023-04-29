@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:learn2fit/startingScreen.dart';
 
+import 'Utils/utils.dart';
+
+// ignore: camel_case_types
 class welcomeScreen extends StatelessWidget {
-  const welcomeScreen({Key? key}) : super(key: key);
+  welcomeScreen({Key? key}) : super(key: key);
+
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +27,17 @@ class welcomeScreen extends StatelessWidget {
                   child: Container(
                 width: Get.width * 0.5,
                 height: Get.height * 0.3,
+<<<<<<< HEAD
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/logo.png"), fit: BoxFit.fill),
                   color: Colors.black,
+=======
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                      image: AssetImage("assets/logo.png"), fit: BoxFit.fill),
+                  color: ut.textColor,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                   shape: BoxShape.circle,
                 ),
               ) /*(
@@ -43,7 +56,11 @@ class welcomeScreen extends StatelessWidget {
                         text: "Welcome to ",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
+<<<<<<< HEAD
                             color: Colors.black,
+=======
+                            color: ut.textColor,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                             fontSize: Get.width * 0.08),
                         children: [
                           TextSpan(
@@ -71,6 +88,7 @@ class welcomeScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 50, horizontal: 15),
                 child: CupertinoButton(
                   onPressed: () {
+<<<<<<< HEAD
                     Get.to(const startingScreen());
                   },
                   color: Colors.green,
@@ -78,6 +96,15 @@ class welcomeScreen extends StatelessWidget {
                     child: Text(
                       "Get Started",
                       style: TextStyle(color: Colors.black),
+=======
+                    Get.to(() => startingScreen());
+                  },
+                  color: Colors.green,
+                  child: Center(
+                    child: Text(
+                      "Get Started",
+                      style: TextStyle(color: ut.textColor),
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                     ),
                   ),
                 ),

@@ -1,21 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
 import 'package:get/get.dart';
+=======
+import 'package:get/get.dart';
+
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
 import '../SignUp/SignUpScreen.dart';
+import '../Utils/utils.dart';
 import 'SignInController.dart';
 
+// ignore: must_be_immutable
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
+
+  signInController sicontroller = Get.put(signInController());
+  final _formKey = GlobalKey<FormState>();
+  var width = Get.width;
+  // ignore: non_constant_identifier_names
+  var SocialAppIconSize = Get.height * 0.03;
+
+  Utils ut = Get.put(Utils());
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     signInController sicontroller = Get.put(signInController());
     // ignore: no_leading_underscores_for_local_identifiers
     final _formKey = GlobalKey<FormState>();
     var width = Get.width;
     // ignore: unused_local_variable, non_constant_identifier_names
     var SocialAppIconSize = Get.height * 0.03;
+=======
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -24,9 +42,15 @@ class SignInScreen extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
+<<<<<<< HEAD
             icon: const Icon(
               CupertinoIcons.back,
               color: Colors.black,
+=======
+            icon: Icon(
+              CupertinoIcons.back,
+              color: ut.black,
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
             )),
       ),
       body: SafeArea(
@@ -94,7 +118,11 @@ class SignInScreen extends StatelessWidget {
                         validator: (String? val) {
                           if (val!.isEmpty) {
                             return "Enter password";
+<<<<<<< HEAD
                           } else if (val.length < 8) {
+=======
+                          } else if (val!.length < 8) {
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                             return "Enter mini 8 digit password";
                           }
                           return null;
@@ -182,6 +210,10 @@ class SignInScreen extends StatelessWidget {
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+<<<<<<< HEAD
+=======
+                            print("tapp");
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                             sicontroller.SignIn();
                           }
                         }),
@@ -194,7 +226,11 @@ class SignInScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 50),
                     child: InkWell(
                       onTap: () {
+<<<<<<< HEAD
                         Get.to(const SignUpScreen());
+=======
+                        Get.to(SignUpScreen());
+>>>>>>> c84de79847f86ecd5175c1275834962061b22d32
                       },
                       child: RichText(
                         text: TextSpan(
