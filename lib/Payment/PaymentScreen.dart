@@ -4,10 +4,10 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
+
 
 =======
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
 import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:get/get.dart';
 
@@ -50,11 +50,11 @@ class PaymentScreen extends StatelessWidget {
             child: CupertinoButton(
               color: Colors.green,
               onPressed: () {
-<<<<<<< HEAD
+
                 Get.to(const GoalsScreen());
 =======
                 Get.to(() => GoalsScreen());
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
               },
               child: const Text(
                 "Pay",
@@ -103,11 +103,10 @@ class PaymentScreen extends StatelessWidget {
                               child: Text(
                                 "Package Name",
                                 style: TextStyle(
-<<<<<<< HEAD
+
                                     color: Colors.black,
-=======
-                                    color: ut.textColor,
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
+
                                     fontWeight: FontWeight.bold,
                                     fontSize: Get.width * 0.05),
                               ),
@@ -137,11 +136,11 @@ class PaymentScreen extends StatelessWidget {
                               child: Text(
                                 "Amount",
                                 style: TextStyle(
-<<<<<<< HEAD
+
                                     color: Colors.black,
 =======
                                     color: ut.textColor,
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                                     fontWeight: FontWeight.bold,
                                     fontSize: Get.width * 0.05),
                               ),
@@ -178,20 +177,20 @@ class PaymentScreen extends StatelessWidget {
                           fontSize: Get.width * 0.05),
                     ),
                     //
-<<<<<<< HEAD
+
 =======
                     // ignore: avoid_unnecessary_containers
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                     Container(
                       child: Row(
                         children: [
                           TextButton(
                               onPressed: () {
-<<<<<<< HEAD
+
                                 Get.to(const SignInScreen());
 =======
                                 Get.to(() => SignInScreen());
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                               },
                               child: const Text(
                                 "Login",
@@ -207,11 +206,11 @@ class PaymentScreen extends StatelessWidget {
                           //
                           TextButton(
                               onPressed: () {
-<<<<<<< HEAD
+
                                 Get.to(const SignUpScreen());
 =======
                                 Get.to(() => SignUpScreen());
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                               },
                               child: const Text(
                                 "Signup",
@@ -243,7 +242,7 @@ class PaymentScreen extends StatelessWidget {
                 child: TextField(
                     style: TextStyle(height: 0.5),
                     decoration: InputDecoration(
-<<<<<<< HEAD
+
 =======
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.green)),
@@ -251,7 +250,7 @@ class PaymentScreen extends StatelessWidget {
                             borderSide: BorderSide(color: Colors.green)),
                         focusColor: Colors.green,
                         labelStyle: TextStyle(color: Colors.green),
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                         border: OutlineInputBorder(),
                         hintText: "0321 xxxxxxx",
                         labelText: "Mobile-No")),
@@ -262,7 +261,7 @@ class PaymentScreen extends StatelessWidget {
                 child: TextField(
                     style: TextStyle(height: 0.5),
                     decoration: InputDecoration(
-<<<<<<< HEAD
+
                         border: OutlineInputBorder(),
                         hintText: "xxxxxxxxxxxxxxxx",
                         labelText: "Card-No")),
@@ -276,7 +275,7 @@ class PaymentScreen extends StatelessWidget {
                         hintText: "xxxxxxxxxxxxxxxx",
                         labelText: "Card-No",
                         labelStyle: TextStyle(color: Colors.green))),
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
               ),
               //
               const Padding(
@@ -284,7 +283,7 @@ class PaymentScreen extends StatelessWidget {
                 child: TextField(
                     style: TextStyle(height: 0.5),
                     decoration: InputDecoration(
-<<<<<<< HEAD
+
 =======
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.green)),
@@ -292,7 +291,7 @@ class PaymentScreen extends StatelessWidget {
                             borderSide: BorderSide(color: Colors.green)),
                         focusColor: Colors.green,
                         labelStyle: TextStyle(color: Colors.green),
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                         border: OutlineInputBorder(),
                         hintText: "xxxxxxxxxxxxxxxx",
                         labelText: "Cvc-No")),
@@ -345,10 +344,10 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Obx(
-<<<<<<< HEAD
+
 =======
                   // ignore: sized_box_for_whitespace
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                   () => Container(
                     height: Get.height * 0.06,
                     width: Get.width,
@@ -368,10 +367,10 @@ class PaymentScreen extends StatelessWidget {
               ),
               //
               Obx(() => (payment.value == "Direct Bank Transfer")
-<<<<<<< HEAD
+
 =======
                   // ignore: avoid_unnecessary_containers
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                   ? Container(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -395,10 +394,10 @@ class PaymentScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Obx(
-<<<<<<< HEAD
+
 =======
                   // ignore: sized_box_for_whitespace
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
                   () => Container(
                     height: Get.height * 0.06,
                     width: Get.width,
@@ -465,13 +464,13 @@ class paypalscreen extends StatelessWidget {
             }
           ],
           note: "Contact us for any questions on your order.",
-<<<<<<< HEAD
+
           onSuccess: (Map params) async {},
 =======
           onSuccess: (Map params) async {
             log("onSuccess: $params");
           },
->>>>>>> c84de79847f86ecd5175c1275834962061b22d32
+
           onError: (error) {
             log("onError: $error");
           },
